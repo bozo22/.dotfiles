@@ -18,11 +18,6 @@ alias hibernate='systemctl hibernate'
 alias neofetch='neofetch --ascii ~/arch.txt'
 alias nc='neocities'
 alias pfetch="PF_INFO='title os wm sh memory' pfetch"
-alias secon='xrandr --output DVI-D-0 --auto --rotate right --right-of DisplayPort-0 && nohup polybar secondary &'
-alias secoff='xrandr --output DVI-D-0 --off'
-alias tvon='xrandr --output HDMI-A-0 --auto --left-of DisplayPort-0'
-alias tvoff='xrandr --output HDMI-A-0 --off'
-alias mpvtv='mpv --audio-device=pulse/alsa_output.pci-0000_09_00.1.hdmi-stereo-extra2'
 
 # Prompt
 
@@ -32,7 +27,6 @@ export PS1="\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;3m\]\W\[$(tput sgr0)\] \
 
 # Environment variables
 
-PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 LS_COLORS=$LS_COLORS:'tw=00;33:ow=01;33:'; export LS_COLORS
 PROMPT_COMMAND='echo -ne "\033]0;urxvt\007"'
 CC="clang"

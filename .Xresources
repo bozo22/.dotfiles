@@ -1,4 +1,4 @@
-URxvt.font: xft:Victor Mono:style=Regular:size=15
+URxvt.font: xft:gohufont:size=10
 URxvt.cursorBlink: 1
 URxvt.scrollBar: false
 URxvt.internalBorder: 12
