@@ -11,6 +11,8 @@
 alias ls='ls --color=auto'
 alias logout='bspc quit'
 alias pytest='pytest -q'
+alias inject='sudo xbps-install'
+alias scan='xbps-query -R'
 #alias clear='clear && pfetch'
 alias mkdir='mkdir -vp'
 alias c='clear'
@@ -33,4 +35,4 @@ CC="clang"
 CFLAGS="-fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow"
 LDLIBS="-lcrypt -lcs50 -lm"
 
-#pfetch
+neofetch
