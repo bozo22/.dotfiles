@@ -3,9 +3,10 @@
 feh --bg-scale ~/.dotfiles/wallpaper.jpg
 polybar main &
 pgrep -x sxhkd > /dev/null || sxhkd &
+ksuperkey -e 'Super_L=Super_L|Alt_L|Shift_L|r'
 setxkbmap -option caps:swapescape
 
-bspc monitor -d I II III
+bspc monitor -d 1 2 3 4
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -15,7 +16,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+bspc rule -a firefox desktop=2 follow=on
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off

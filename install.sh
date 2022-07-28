@@ -1,16 +1,14 @@
 #!/bin/bash
 
-# Install the basics
+# Install the essentials
 
-#sudo pacman -S bspwm sxhkd firefox rxvt-unicode ttf-jetbrains-mono archlinux-keyring bluez bluez-utils alsa-utils pulseaudio rsync networkmanager network-manager-applet xorg git base-devel polybar feh
-#yay -S ly otf-nerd-fonts-fira-code
-
-# Install additional stuff
+#sudo pacman -S bspwm sxhkd firefox rxvt-unicode ttf-jetbrains-mono archlinux-keyring bluez bluez-utils alsa-utils pulseaudio rsync networkmanager network-manager-applet xorg git base-devel polybar feh picom ntfs-3g
+#yay -S ly otf-nerd-fonts-fira-code ksuperkey
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Remove old dotfiles
+# Remove old config files
 
 rm -f ~/.bashrc
 rm -f ~/.vimrc
