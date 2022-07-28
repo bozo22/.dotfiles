@@ -1,9 +1,11 @@
-#! /bin/sh
+#!/bin/sh
 
+feh --bg-scale ~/.dotfiles/wallpaper.jpg
+polybar main &
 pgrep -x sxhkd > /dev/null || sxhkd &
 setxkbmap -option caps:swapescape
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III
 
 bspc config border_width         2
 bspc config window_gap          12

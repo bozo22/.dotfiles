@@ -29,7 +29,7 @@ export PS1="\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;4m\]\W\[$(tput sgr0)\] \
 
 LS_COLORS=$LS_COLORS:'tw=00;33:ow=01;33:'; export LS_COLORS
 RANGER_LOAD_DEFAULT_RC="FALSE"
-#PROMPT_COMMAND='echo -en "\033]0;urxvt\a"'
+PROMPT_COMMAND='echo -en "\033]0;urxvt\a"'
 PATH=$PATH:.
 
 # Scripts
