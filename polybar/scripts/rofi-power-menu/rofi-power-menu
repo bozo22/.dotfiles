@@ -41,9 +41,9 @@ declare -A actions
 #actions[switchuser]="???"
 actions[logout]="bspc quit"
 actions[suspend]="systemctl suspend"
-actions[hibernate]="systemctl hibernate"
-actions[reboot]="systemctl reboot"
-actions[shutdown]="systemctl poweroff"
+actions[hibernate]="sudo systemctl hibernate"
+actions[reboot]="sudo systemctl reboot"
+actions[shutdown]="sudo systemctl poweroff"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout)

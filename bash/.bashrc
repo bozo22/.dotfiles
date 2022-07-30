@@ -61,3 +61,4 @@ x () {
 	fi
 }
 
+. "$HOME/.cargo/env"

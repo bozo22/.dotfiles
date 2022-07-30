@@ -22,6 +22,10 @@ super + Caps_Lock
 super + space
     setxkbmap {hu,us}
 
+# alt tab
+alt + Tab
+    rofi -show window
+
 #
 # Thinkpad fn keys
 #
@@ -79,7 +83,7 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flag to sticky
-super + ctrl + y
+super + shift + y
 	bspc node -g sticky
 
 #
@@ -104,6 +108,7 @@ super + bracket{left,right}
 
 ctrl + alt + shift + bracket{left,right}
 	bspc desktop -f {prev,next}.local
+
 # send node to the next/pervious desktop
 super + shift + bracket{left,right}
     bspc node -d {prev,next}.local --follow

@@ -33,4 +33,4 @@ if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 echo 'set completion-ignore-case On' >> ~/.inputrc
 sudo gpasswd -a $USER input
 newgrp input
-libinput-gestures-setup autostart start
+chsh -s /bin/zsh

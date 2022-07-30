@@ -6,6 +6,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 ksuperkey -e 'Super_L=Super_L|Alt_L|Shift_L|r'
 setxkbmap -option caps:swapescape
 picom &
+libinput-gestures-setup start
 megasync &
 
 bspc monitor -d 1 2 3 4
