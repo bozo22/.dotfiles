@@ -20,7 +20,7 @@ super + Caps_Lock
 
 # keyboard switch
 super + space
-    setxkbmap {us, hu}
+    setxkbmap {hu,us}
 
 #
 # Thinkpad fn keys

@@ -4,7 +4,7 @@
 # 1 2 3
 # 8 0 4
 # 7 6 5
-POSITION=3
+POSITION=0
 
 #y-offset
 YOFF=31
