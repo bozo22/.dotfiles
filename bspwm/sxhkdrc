@@ -102,6 +102,8 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
+ctrl + alt + shift + bracket{left,right}
+	bspc desktop -f {prev,next}.local
 # send node to the next/pervious desktop
 super + shift + bracket{left,right}
     bspc node -d {prev,next}.local --follow
