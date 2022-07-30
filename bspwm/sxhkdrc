@@ -14,9 +14,37 @@ super + w
 super + alt + shift + r
     rofi -show run
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+# make sxhkd & polybar reload their configuration files:
+super + Caps_Lock
+	pkill -USR1 -x sxhkd && polybar-msg cmd restart
+
+# keyboard switch
+super + space
+    setxkbmap {us, hu}
+
+#
+# Thinkpad fn keys
+#
+
+# mute
+XF86AudioMute
+    amixer set Master toggle
+
+# raise volume
+XF86AudioRaiseVolume
+    amixer set Master 5%+
+
+# lower volume
+XF86AudioLowerVolume
+    amixer set Master 5%-
+
+# increase brightness
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+# lower brigthness
+XF86MonBrightnessDown
+    xbacklight -dec 10
 
 #
 # bspwm hotkeys
@@ -50,9 +78,9 @@ super + g
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# set the node flag to sticky
+super + ctrl + y
+	bspc node -g sticky
 
 #
 # focus/swap
@@ -74,6 +102,10 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
+# send node to the next/pervious desktop
+super + shift + bracket{left,right}
+    bspc node -d {prev,next}.local --follow
+
 # focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
@@ -86,7 +118,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
 #
 # preselect
