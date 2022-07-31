@@ -16,6 +16,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
 Plug 'mangeshrex/everblush.vim'
 "Plug 'valloric/youcompleteme'
+Plug 'https://github.com/w0ng/vim-hybrid'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
@@ -24,7 +25,7 @@ call plug#end()
 set background=light
 set clipboard=unnamed
 set laststatus=2
-colorscheme everblush
+colorscheme PaperColor
 let g:lightline = {
       \ 'colorscheme': 'Tomorrow',
       \ }

@@ -2,7 +2,7 @@
 
 # desktop
 
-feh --bg-scale ~/.dotfiles/wallpaper.jpg
+feh --bg-fill ~/.dotfiles/wallpaper.jpg
 bspc monitor -d 1 2 3 4
 bash "$HOME/.config/polybar/launch.sh"
 picom & disown
