@@ -1,4 +1,4 @@
-@theme "/usr/share/rofi/themes/android_notification.rasi"
+@theme "slate.rasi"
 *{
 font: "FiraCode Nerd Font 12";
 }

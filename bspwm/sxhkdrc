@@ -12,11 +12,11 @@ super + w
 
 # program launcher
 super + alt + shift + r
-    rofi -show run
+    rofi -modi drun -show drun
 
 # make sxhkd & polybar reload their configuration files:
-super + Caps_Lock
-	pkill -USR1 -x sxhkd && polybar-msg cmd restart
+super + Escape
+	pkill -USR1 -x sxhkd
 
 # keyboard switch
 super + space

@@ -14,6 +14,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
+Plug 'mangeshrex/everblush.vim'
 "Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-commentary'
@@ -23,7 +24,7 @@ call plug#end()
 set background=light
 set clipboard=unnamed
 set laststatus=2
-colorscheme PaperColor
+colorscheme everblush
 let g:lightline = {
       \ 'colorscheme': 'Tomorrow',
       \ }
