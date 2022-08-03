@@ -22,8 +22,8 @@ super + Escape
 super + space
     setxkbmap {hu,us}
 
-# alt tab
-alt + Tab
+# rofi window switcher
+alt + shift + Tab
     rofi -show window
 
 #
@@ -95,11 +95,11 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+super + {p,comma,period}
+	bspc node -f @{parent,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
+alt + Tab
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
@@ -124,8 +124,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}' --follow
+super + {_,shift + }{1-4,z,x,c,v}
+	bspc {desktop -f,node -d} '{1-4,z,x,c,v}' --follow
 
 #
 # preselect
