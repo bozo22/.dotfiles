@@ -21,15 +21,15 @@ xset r rate 350 50
 
 # bswm config
 
-bspc config window_gap          5
+bspc config window_gap          0
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc config focused_border_color '#8959A8'
-bspc config normal_border_color '#000000'
-bspc config border_width 2
+bspc config focused_border_color '#303030'
+bspc config normal_border_color '#303030'
+bspc config border_width 1
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Nm-connection-editor state=floating follow=on
