@@ -9,7 +9,7 @@ else
 fi
 bspc desktop -f 'z'
 feh --bg-fill ~/.dotfiles/wallpaper.jpg
-./$HOME/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh
 picom & disown
 
 # input

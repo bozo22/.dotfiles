@@ -20,6 +20,7 @@ ln -s ~/.dotfiles/rofi ~/.config/rofi
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
 ln -s ~/.dotfiles/kitty ~/.config/kitty
 ln -s ~/.dotfiles/nvim ~/.config/nvim
+ln -s ~/.dotfiles/picom ~/.config/picom
 
 # Additional configuration
 
@@ -28,6 +29,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 echo 'set completion-ignore-case On' >> ~/.inputrc
 sudo gpasswd -a $USER input
-chmod +x polybar/launch.sh cleanup.sh
+chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,cleanup.sh}
+
 newgrp input
 chsh -s /bin/zsh
