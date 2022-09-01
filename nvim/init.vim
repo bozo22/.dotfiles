@@ -1,7 +1,4 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-call plug#begin()
-Plug 'kyazdani42/nvim-tree.lua'
-call plug#end()
-
-source ~/.vimrc
+source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/general/settings.vim
+source $HOME/.config/nvim/keys/mappings.vim
+source $HOME/.config/nvim/themes/papercolor.vim

@@ -2,13 +2,14 @@
 
 # Remove old config files
 
-rm -f ~/{.bashrc,.vimrc,.Xresources}
+rm -f ~/{.bashrc,.vimrc,.Xresources,.zshrc}
 sudo rm -f /etc/default/grub
-rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim}
+rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger}
 
 # Create symlinks
 
 ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/urxvt/.Xresources ~/.Xresources
 ln -s ~/.dotfiles/bspwm ~/.config/bspwm
@@ -21,6 +22,7 @@ ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
 ln -s ~/.dotfiles/kitty ~/.config/kitty
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 ln -s ~/.dotfiles/picom ~/.config/picom
+ln -s ~/.dotfiles/ranger ~/.config/ranger
 
 # Additional configuration
 
