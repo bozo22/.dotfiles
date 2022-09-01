@@ -4,7 +4,7 @@
 
 rm -f ~/{.bashrc,.vimrc,.Xresources}
 sudo rm -f /etc/default/grub
-rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty}
+rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim}
 
 # Create symlinks
 
@@ -19,6 +19,7 @@ sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
 ln -s ~/.dotfiles/rofi ~/.config/rofi
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
 ln -s ~/.dotfiles/kitty ~/.config/kitty
+ln -s ~/.dotfiles/nvim ~/.config/nvim
 
 # Additional configuration
 
@@ -27,5 +28,6 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 echo 'set completion-ignore-case On' >> ~/.inputrc
 sudo gpasswd -a $USER input
+chmod +x polybar/launch.sh cleanup.sh
 newgrp input
 chsh -s /bin/zsh
