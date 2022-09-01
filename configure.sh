@@ -2,30 +2,23 @@
 
 # Remove old config files
 
-rm -f ~/.bashrc
-rm -f ~/.vimrc
-rm -f ~/.Xresources
-rm -f ~/.config/bspwm/bspwmrc
-rm -f ~/.config/sxhkd/sxhkdrc
-rm -f ~/.config/polybar/config.ini
+rm -f ~/{.bashrc,.vimrc,.Xresources}
 sudo rm -f /etc/default/grub
-rm -f ~/.config/rofi/config.rasi
+rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty}
 
 # Create symlinks
 
 ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/urxvt/.Xresources ~/.Xresources
-mkdir -p .config/{bspwm,sxhkd,polybar,picom,rofi}
-ln -s ~/.dotfiles/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
-ln -s ~/.dotfiles/bspwm/sxhkdrc ~/.config/sxhkd/sxhkdrc
-ln -s ~/.dotfiles/polybar/config.ini ~/.config/polybar/config.ini
-ln -s ~/.dotfiles/polybar/launch.sh ~/.config/polybar/launch.sh
+ln -s ~/.dotfiles/bspwm ~/.config/bspwm
+ln -s ~/.dotfiles/sxhkd ~/.config/sxhkd
+ln -s ~/.dotfiles/polybar ~/.config/polybar
 sudo ln -s ~/.dotfiles/system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
-ln -s ~/.dotfiles/rofi/config.rasi ~/.config/rofi/config.rasi
-ln -s ~/.dotfiles/rofi/slate.rasi ~/.config/rofi/slate.rasi
+ln -s ~/.dotfiles/rofi ~/.config/rofi
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
+ln -s ~/.dotfiles/kitty ~/.config/kitty
 
 # Additional configuration
 

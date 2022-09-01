@@ -5,7 +5,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set noshowmode
-autocmd VimEnter * silent !echo -ne "\e[1 q"
 
 " Run PlugInstall if there are missing plugins
 " autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
@@ -16,17 +15,13 @@ call plug#begin()
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
 Plug 'mangeshrex/everblush.vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 "Plug 'valloric/youcompleteme'
-Plug 'https://github.com/w0ng/vim-hybrid'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-commentary'
-Plug 'dense-analysis/ale'
 call plug#end()
 
 set background=light
-set clipboard=unnamed
+set clipboard=unnamedplus
 set laststatus=2
 colorscheme PaperColor
 let g:lightline = {
@@ -39,4 +34,5 @@ set timeoutlen=1000
 set ttimeoutlen=1
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
-let g:ale_completion_enabled = 0
+autocmd VimEnter * silent !echo -ne "\e[1 q"
+autocmd VimEnter * redraw!
