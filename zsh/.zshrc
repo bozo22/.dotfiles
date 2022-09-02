@@ -26,6 +26,7 @@ alias gcc="gcc -Wall -Wextra -lm -o main"
 alias diff="diff --strip-trailing-cr -Z"
 alias g++="g++ -Wall -Wextra -o main"
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rg='ranger'
 
 # prompt
 
