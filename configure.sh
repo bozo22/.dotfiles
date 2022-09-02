@@ -1,15 +1,10 @@
 #!/bin/bash
 
-# config directories
-
-dirs=(bspwm sxhkd polybar rofi picom kitty nvim ranger)
-
 # Remove old config files
 
 rm -f ~/{.bashrc,.vimrc,.Xresources,.zshrc}
 sudo rm -f /etc/default/grub
-rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger}
-for i in $dirs ; do rm -rf ~/.config/$i ; done
+sudo rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger}
 
 # Create symlinks
 
@@ -20,7 +15,8 @@ ln -s ~/.dotfiles/urxvt/.Xresources ~/.Xresources
 sudo ln -s ~/.dotfiles/system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
-for i in $dirs ; do ln -s ~/.dotfiles/$i ~/.config/$i ; done
+for i in $dirs ; do ln -s $HOME/.dotfiles/$i $HOME/.config/$i ; done
+ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger} ~/.config
 
 # Additional configuration
 
