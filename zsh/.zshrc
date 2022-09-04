@@ -35,7 +35,7 @@ PROMPT='%B%F{blue}%1~%f λ %b'
 # PATH
 
 path+=('.')
-
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 # environment variables
 
 RANGER_LOAD_DEFAULT_RC="FALSE"

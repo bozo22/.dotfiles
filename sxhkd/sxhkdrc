@@ -56,7 +56,7 @@ super + alt + {q,r}
 
 # close and kill
 super + BackSpace
-	bspc node -{c,k}
+	bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m

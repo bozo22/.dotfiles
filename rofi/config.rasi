@@ -1,4 +1,5 @@
-@theme "slate.rasi"
+//@theme "slate.rasi"
 *{
 font: "FiraCode Nerd Font 12";
 }
+@theme "minimal.rasi"
