@@ -34,10 +34,10 @@ configuration {
   padding: 0;
   spacing: 0;
 
-  fg: #151515;
-  fg-alt: #232323;
-  bg: #FFFFFF;
-  bg-alt: #424242;
+  bg: #151515;
+  bg-alt: #232323;
+  fg: #FFFFFF;
+  fg-alt: #424242;
 
   background-color: @bg;
   text-color: @fg;
@@ -45,8 +45,9 @@ configuration {
 
 window {
   transparency: "real";
-  border-color: @fg;
-  border: 1;
+  /* border-color: @fg; */
+  border: 0;
+  width: 550px;
 }
 
 mainbox {
@@ -74,12 +75,11 @@ element {
 }
 
 element-text selected.normal {
-    background-color: #EEEEEE;
+    background-color: #373B41;
 }
 
 element-text {
   padding: 16px;
-  text-color: @fg-alt;
 }
 
 element-text selected {

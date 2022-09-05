@@ -14,13 +14,27 @@ super + w
 super + alt + shift + r
     rofi -modi drun -show drun
 
-# make sxhkd & polybar reload their configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+# make sxhkd reload its configuration files:
+# super + Escape
+# 	pkill -USR1 -x sxhkd
 
 # rofi window switcher
-alt + shift + Tab
+alt + Tab
     rofi -show window
+
+# full-screen screenshot
+
+Print
+    scrot 'screenshots/%b%d_%T.png' -e 'optipng $f' && dunstify 'scrot' 'screenshot taken'
+
+# selection screenshot
+
+shift + Print
+    scrot -fis -l mode=classic,width=2,opacity=255,color='#000000' 'screenshots/Hiányzó elemek.png' -e 'optipng $f' && dunstify 'scrot' 'screenshot taken'
+
+# rofi power menu
+super + p
+    rofi -show power-menu -modi "power-menu:$HOME/.dotfiles/polybar/scripts/rofi-power-menu/rofi-power-menu --choices=shutdown/reboot/logout/suspend" -theme-str 'window \{width: 220;\} listview \{lines: 4;\}'
 
 #
 # Thinkpad fn keys
@@ -52,7 +66,7 @@ XF86MonBrightnessDown
 
 # quit/restart bspwm
 super + alt + {q,r}
-	bspc {quit,wm -r}
+	bspc {quit,wm -r && pkill -USR1 -x sxhkd && notify-send  'bspwm' 'config reloaded' -i actions/application-menu-symbolic}
 
 # close and kill
 super + BackSpace
@@ -95,8 +109,8 @@ super + {p,comma,period}
 	bspc node -f @{parent,first,second}
 
 # focus the next/previous window in the current desktop
-alt + Tab
-	bspc node -f {next,prev}.local.!hidden.window
+# alt + Tab
+# 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}

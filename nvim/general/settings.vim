@@ -34,5 +34,5 @@ autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 autocmd VimEnter * silent !echo -ne "\e[1 q"
 autocmd VimEnter * redraw!
-au! BufWritePost $MYVIMRC source %
-cmap w!! w !sudo tee %
+" au! BufWritePost $MYVIMRC source %
+" cmap w!! w !sudo tee %

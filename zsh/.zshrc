@@ -20,6 +20,10 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # aliases
 
 alias ls='ls --color=auto'
+alias rm='rm -Ir'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
 alias hss='hugo server --noHTTPCache'
 alias cleanup='/home/$USER/.dotfiles/cleanup.sh'
 alias gcc="gcc -Wall -Wextra -lm -o main"

@@ -3,9 +3,9 @@
 # desktop
 
 if [[ $(xrandr -q | grep 'HDMI2 connected') ]]; then
-    xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --output HDMI2 --primary --mode 2560x1440 --pos 1920x0 && bspc monitor HDMI2 -d z x c v && bspc monitor eDP1 -d 1 2 3 4
+    xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --output HDMI2 --primary --mode 2560x1440 --pos 1920x0 && bspc monitor HDMI2 -d z x c v && bspc monitor eDP1 -d 1 2 3 4 && export TRAY_POS_SECOND=left
 else
-    xrandr --output eDP1 --primary --mode 1920x1080 && bspc monitor eDP1 -d z x c v
+    xrandr --output eDP1 --primary --mode 1920x1080 && bspc monitor eDP1 -d z x c v && export TRAY_POS_MAIN=left
 fi
 bspc desktop -f 'z'
 feh --bg-fill ~/.dotfiles/wallpaper.jpg
@@ -51,4 +51,3 @@ then
     megasync & disown
 fi
 
-dunstify  config reloaded
