@@ -31,6 +31,7 @@ bspc config gapless_monocle      true
 
 bspc config focused_border_color '#000000'
 bspc config normal_border_color '#000000'
+bspc config active_border_color '#000000'
 bspc config border_width 1
 
 bspc config focus_follows_pointer true
@@ -44,8 +45,9 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Zathura state=tiled
 
-# autostart apps
+# autostart 
 
+bluetoothctl power on
 if ! pgrep -x "megasync" > /dev/null
 then
     megasync & disown

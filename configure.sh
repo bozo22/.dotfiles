@@ -30,6 +30,7 @@ sudo gpasswd -a $USER input
 chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,cleanup.sh}
 mkdir $HOME/screenshots
 sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus
+git config --global credential.helper store
 
 newgrp input
 chsh -s /bin/zsh
