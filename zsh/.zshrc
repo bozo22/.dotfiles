@@ -73,3 +73,5 @@ function ranger_func {
         true > "$quit_cd_wd_file"
     fi
 }
+
+source $HOME/.dotfiles/private.sh

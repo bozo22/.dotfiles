@@ -49,17 +49,18 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 6
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 0
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
+    progress_bar_min_width = 300
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 450
 
+    progress_bar_horizontal_alignment = center
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -209,7 +210,7 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 110
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
     icon_path = /usr/share/icons/Papirus-Dark/symbolic/
@@ -310,14 +311,15 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#151515"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 8
+    highlight = "#ffffff"
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
     background = "#151515"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 8
     # Icon for notifications with normal urgency, uncomment to enable
     default_icon = actions/help-info-symbolic
 

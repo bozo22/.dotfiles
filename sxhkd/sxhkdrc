@@ -47,10 +47,12 @@ XF86AudioMute
 # raise volume
 XF86AudioRaiseVolume
     amixer set Master 5%+
+#   $HOME/.dotfiles/dunst/scripts/changevolume.sh 5%+
 
 # lower volume
 XF86AudioLowerVolume
     amixer set Master 5%-
+#   $HOME/.dotfiles/dunst/scripts/changevolume.sh 5%-
 
 # increase brightness
 XF86MonBrightnessUp
