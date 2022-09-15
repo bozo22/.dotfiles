@@ -2,4 +2,7 @@
 *{
 font: "FiraCode Nerd Font 12";
 }
+configuration {
+    terminal: "kitty";
+}
 @theme "minimal.rasi"

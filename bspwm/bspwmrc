@@ -38,6 +38,7 @@ bspc config focus_follows_pointer true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Nm-connection-editor state=floating follow=on
+bspc rule -a Emacs state=tiled
 bspc rule -a MEGAsync state=floating border=off
 bspc rule -a firefox desktop=x follow=on
 bspc rule -a mplayer2 state=floating

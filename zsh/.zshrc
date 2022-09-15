@@ -1,3 +1,4 @@
+#
 # Lines configured by zsh-newuser-install
 
 # history
