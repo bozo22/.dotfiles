@@ -62,6 +62,9 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     xbacklight -dec 10
 
+XF86Bluetooth
+    $HOME/.dotfiles/system/bluetooth.sh
+
 #
 # bspwm hotkeys
 #

@@ -5,7 +5,7 @@
 rm -rf ~/{.bashrc,.vimrc,.Xresources,.zshrc,.ghc}
 sudo rm -f /etc/default/grub
 sudo rm -f /etc/bluetooth/main.conf
-rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst}
+rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura}
 
 # Create symlinks
 
@@ -19,7 +19,7 @@ sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
 sudo ln -s ~/.dotfiles/system/main.conf /etc/bluetooth
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
 for i in $dirs ; do ln -s $HOME/.dotfiles/$i $HOME/.config/$i ; done
-ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst} ~/.config
+ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura} ~/.config
 
 # Additional configuration
 
@@ -29,7 +29,7 @@ if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 echo 'set completion-ignore-case On' >> ~/.inputrc
 sudo gpasswd -a $USER input
 if [ ! -f $HOME/.dotfiles/private.sh ] ; then touch $HOME/.dotfiles/private.sh && echo '#!/bin/bash' > $HOME/.dotfiles/private.sh ; fi
-chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,cleanup.sh,private.sh}
+chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,cleanup.sh,private.sh,system/bluetooth.sh}
 chmod go-w $HOME/.ghc/ghci.conf
 mkdir $HOME/screenshots
 sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus
