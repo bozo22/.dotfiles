@@ -1,4 +1,5 @@
 #!/bin/sh
+
 export ZDOTDIR=$HOME/.config/zsh
 HISTFILE=~/.zsh_history
 setopt appendhistory
@@ -6,28 +7,30 @@ setopt appendhistory
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch
 setopt interactive_comments
+#setopt globdots
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
-# beeping is annoying
 unsetopt BEEP
 
+# colors
+autoload -Uz colors && colors
 
 # completions
-autoload -Uz compinit
-zstyle ':completion:*' menu select
 # zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
-# compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+#zstyle ':completion:*' list-colors ''
+autoload -Uz compinit
+compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-
-# Colors
-autoload -Uz colors && colors
 
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
@@ -42,9 +45,6 @@ zsh_add_file "zsh-prompt"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
-# zsh_add_completion "esc/conda-zsh-completion" false
-# For more plugins: https://github.com/unixorn/awesome-zsh-plugins
-# More completions https://github.com/zsh-users/zsh-completions
 
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
@@ -63,7 +63,6 @@ bindkey -r "^d"
 bindkey "^ " autosuggest-accept
 
 # FZF 
-# TODO update for mac
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
@@ -73,11 +72,39 @@ bindkey "^ " autosuggest-accept
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 compinit
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-# bindkey '^e' edit-command-line
-
-# Environment variables set everywhere
+RANGER_LOAD_DEFAULT_RC="FALSE"
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
+
+# anaconda init function
+
+anaconda () {
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+}
+
+# ranger quit function
+
+function ranger_func {
+    ranger $*
+    local quit_cd_wd_file="$HOME/.ranger_quit_cd_wd"
+    if [ -s "$quit_cd_wd_file" ]; then
+        cd "$(cat $quit_cd_wd_file)"
+        true > "$quit_cd_wd_file"
+    fi
+}
+
+source $HOME/.dotfiles/private.sh
