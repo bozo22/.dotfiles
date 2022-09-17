@@ -2,15 +2,14 @@
 
 # Remove old config files
 
-rm -rf ~/{.bashrc,.vimrc,.Xresources,.zshrc,.ghc}
+rm -rf ~/{.bashrc,.vimrc,.Xresources,.ghc}
 sudo rm -f /etc/default/grub
 sudo rm -f /etc/bluetooth/main.conf
-rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura}
+rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh}
 
 # Create symlinks
 
 ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
-ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/urxvt/.Xresources ~/.Xresources
 ln -s ~/.dotfiles/.ghc ~/.ghc
@@ -19,7 +18,7 @@ sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
 sudo ln -s ~/.dotfiles/system/main.conf /etc/bluetooth
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
 for i in $dirs ; do ln -s $HOME/.dotfiles/$i $HOME/.config/$i ; done
-ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura} ~/.config
+ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh} ~/.config
 
 # Additional configuration
 

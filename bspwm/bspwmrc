@@ -19,6 +19,7 @@ $HOME/.config/polybar/launch.sh & disown
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 ksuperkey -e 'Super_L=Super_L|Alt_L|Shift_L|r'
+export ZDOTDIR=$HOME/.config/zsh
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Nm-connection-editor state=floating follow=on
