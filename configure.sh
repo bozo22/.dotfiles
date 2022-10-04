@@ -31,7 +31,7 @@ if [ ! -f $HOME/.dotfiles/private.sh ] ; then touch $HOME/.dotfiles/private.sh &
 chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,cleanup.sh,private.sh,system/bluetooth.sh}
 chmod go-w $HOME/.ghc/ghci.conf
 mkdir $HOME/screenshots
-sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus
+sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
 git config --global credential.helper store
 
 newgrp input

@@ -30,7 +30,7 @@ Print
 # selection screenshot
 
 shift + Print
-    scrot -fis -l mode=classic,width=2,opacity=255,color='#000000' 'screenshots/Hiányzó elemek.png' -e 'optipng $f' && dunstify 'scrot' 'screenshot taken'
+    scrot -fis -l mode=classic,width=2,opacity=255,color='#000000' 'screenshots/%b%d_%T.png' -e 'optipng $f' && dunstify 'scrot' 'screenshot taken'
 
 # rofi power menu
 super + p
@@ -98,7 +98,7 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flag to sticky
-super + shift + y
+super + shift + s
 	bspc node -g sticky
 
 #

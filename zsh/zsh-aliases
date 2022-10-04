@@ -13,4 +13,4 @@ alias g++="g++ -Wall -Wextra -o main"
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias bat='bat --theme=GitHub'
 alias fp="fzf --preview 'bat --style=numbers --color=always --theme=GitHub --line-range :500 {}'"
-
+alias r='sudo $(fc -ln -1)'
