@@ -80,7 +80,7 @@ RANGER_LOAD_DEFAULT_RC="FALSE"
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
-path+=('.')
+#path+=('.')
 
 # anaconda init function
 
