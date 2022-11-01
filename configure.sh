@@ -2,7 +2,7 @@
 
 # Remove old config files
 
-rm -rf ~/{.bashrc,.vimrc,.Xresources,.ghc}
+rm -rf ~/{.bashrc,.vimrc,.Xresources,.ghc,.gitconfig}
 sudo rm -f /etc/default/grub
 sudo rm -f /etc/bluetooth/main.conf
 rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh}
@@ -12,6 +12,7 @@ rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura
 ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/urxvt/.Xresources ~/.Xresources
+ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.ghc ~/.ghc
 sudo ln -s ~/.dotfiles/system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
