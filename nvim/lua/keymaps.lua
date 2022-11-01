@@ -15,7 +15,7 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>e", ":Lex 15<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -24,8 +24,18 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap('n', '<S-h>', '<Cmd>BufferPrevious<CR>', opts)
+keymap('n', '<S-l>', '<Cmd>BufferNext<CR>', opts)
+
+-- Reorder buffers
+keymap('n', '<A-h>', '<Cmd>BufferMovePrevious<CR>', opts)
+keymap('n', '<A-l>', '<Cmd>BufferMoveNext<CR>', opts)
+
+-- Close buffer
+keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
+
+-- Vertical split
+keymap('n', '<leader>s', ':vsp<CR>', opts)
 
 -- Insert --
 -- Press jk fast to enter

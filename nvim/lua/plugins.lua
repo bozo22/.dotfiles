@@ -44,6 +44,12 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
+  use "kyazdani42/nvim-web-devicons"
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+  use "moll/vim-bbye"
 
   -- hybrid line numbers
   use {
@@ -60,6 +66,14 @@ return packer.startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  -- comment
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
   }
 
   -- completion
