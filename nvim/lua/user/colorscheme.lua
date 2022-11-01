@@ -5,7 +5,7 @@ require('github-theme').setup({
   overrides = function(c)
      return {
       BufferCurrent = {style = "bold"},
-      BufferCurrentMod = {style = "bold", fg = c.orange},
+      BufferCurrentMod = {style = "bold", fg = c.warning},
 --      BufferTabpageFill = {bg = c.bg}
     }
   end

@@ -45,11 +45,11 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
   use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
   }
-  use "moll/vim-bbye"
 
   -- hybrid line numbers
   use {
@@ -59,7 +59,7 @@ return packer.startup(function(use)
      end
   }
 
-  -- colorschemes
+  -- color scheme
   use({ 'projekt0n/github-nvim-theme' })
 
   -- status line
@@ -82,10 +82,16 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "saadparwaiz1/cmp_luasnip"
+  use "hrsh7th/cmp-nvim-lsp"
 
   -- snippets
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
+
+	-- LSP
+  use "williamboman/mason.nvim" -- simple to use language server installer
+  use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
+  use "neovim/nvim-lspconfig" -- enable LSP
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
