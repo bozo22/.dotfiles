@@ -33,7 +33,6 @@ chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-
 chmod go-w $HOME/.ghc/ghci.conf
 mkdir $HOME/screenshots
 sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
-git config --global credential.helper store
 
 newgrp input
 chsh -s /bin/zsh
