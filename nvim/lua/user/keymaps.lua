@@ -19,7 +19,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>w", ":close<CR>", opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
+-- keymap("n", "<esc><esc>", ":silent! nohls<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

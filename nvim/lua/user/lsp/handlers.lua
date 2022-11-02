@@ -37,7 +37,7 @@ end
 
 local on_attach = function(_, bufnr)
   lsp_keymaps(bufnr)
---  lsp_highlight_document()
+ lsp_highlight_document()
 end
 
 local cap = vim.lsp.protocol.make_client_capabilities()
