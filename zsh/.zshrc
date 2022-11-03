@@ -112,4 +112,4 @@ function ranger_func {
     fi
 }
 
-source $HOME/.dotfiles/private.sh
+source $HOME/.dotfiles/scripts/private.sh

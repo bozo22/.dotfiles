@@ -6,7 +6,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias hss='hugo server --noHTTPCache'
-alias cleanup='/home/$USER/.dotfiles/cleanup.sh'
 alias gcc="gcc -Wall -Wextra -lm -o main"
 alias diff="diff --strip-trailing-cr -Z"
 alias g++="g++ -Wall -Wextra -o main"

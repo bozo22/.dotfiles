@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Remove old config files
 
@@ -28,11 +28,10 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
 echo 'set completion-ignore-case On' >> ~/.inputrc
 sudo gpasswd -a $USER input
-if [ ! -f $HOME/.dotfiles/private.sh ] ; then touch $HOME/.dotfiles/private.sh && echo '#!/bin/bash' > $HOME/.dotfiles/private.sh ; fi
-chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,cleanup.sh,private.sh,system/bluetooth.sh}
+if [ ! -f $HOME/.dotfiles/scripts/private.sh ] ; then touch $HOME/.dotfiles/scripts/private.sh && echo '#!/bin/sh' > $HOME/.dotfiles/scripts/private.sh ; fi
+chmod +x $HOME/.dotfiles/{polybar/launch.sh,polybar/scripts/rofi-wifi-menu/rofi-wifi-menu.sh,polybar/scripts/rofi-bluetooth/rofi-bluetooth,scripts/private.sh,scripts/pkgdump.sh,system/bluetooth.sh}
 chmod go-w $HOME/.ghc/ghci.conf
 mkdir $HOME/screenshots
-sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --theme Papirus --apply
 
 newgrp input
 chsh -s /bin/zsh

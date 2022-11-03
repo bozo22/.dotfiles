@@ -47,6 +47,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "yorik1984/newpaper.nvim"
+  use "noahfrederick/vim-hemisu"
   use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}

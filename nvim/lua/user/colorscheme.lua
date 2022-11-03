@@ -7,9 +7,9 @@ require('github-theme').setup({
      return {
       BufferCurrent = {style = "bold"},
       BufferCurrentMod = {style = "bold", fg = c.warning},
---      BufferTabpageFill = {bg = c.bg}
+--     BufferTabpageFill = {bg = c.bg},
       CursorLine = {bg = c.bg2},
-      -- VertSplit = {fg = c.bg}
+      VertSplit = {fg = c.bg}
     }
   end
 })
@@ -47,3 +47,6 @@ require('github-theme').setup({
     lualine_style       = "light",
     devicons_custom     = {},
 }) ]]
+
+-- Hemisu
+-- vim.cmd("colorscheme hemisu")

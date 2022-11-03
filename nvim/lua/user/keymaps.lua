@@ -41,14 +41,14 @@ keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
 -- Vertical split
 keymap('n', '<leader>s', ':vsp<CR>', opts)
 
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Use tab for tabbing
+keymap("v", "<S-TAB>", "<gv", opts)
+keymap("v", "<TAB>", ">gv", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)

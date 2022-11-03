@@ -185,6 +185,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["vim-hemisu"] = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/vim-hemisu",
+    url = "https://github.com/noahfrederick/vim-hemisu"
   }
 }
 

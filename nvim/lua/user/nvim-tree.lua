@@ -25,7 +25,7 @@ nvim_tree.setup {
   remove_keymaps = false,
   select_prompts = false,
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     centralize_selection = false,
     width = 30,
     hide_root_folder = false,
