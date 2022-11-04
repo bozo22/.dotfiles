@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -113,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["doom-one.nvim"] = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/doom-one.nvim",
+    url = "https://github.com/NTBBloodbath/doom-one.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -164,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -183,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-hemisu"] = {
     loaded = true,

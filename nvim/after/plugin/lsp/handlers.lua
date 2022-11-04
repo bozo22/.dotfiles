@@ -58,7 +58,7 @@ require("mason-lspconfig").setup_handlers {
 
   function(server_name)
 
-    local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server_name)
+    local require_ok, conf_opts = pcall(require, "lua.bozo.lsp." .. server_name)
     if require_ok then
       opts = vim.tbl_deep_extend("force", conf_opts, opts)
     end

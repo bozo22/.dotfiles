@@ -21,6 +21,9 @@ keymap("n", "<leader>w", ":close<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- keymap("n", "<esc><esc>", ":silent! nohls<cr>", opts)
 
+-- Telescope
+keymap("n", "<leader>pv", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)

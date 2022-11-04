@@ -45,15 +45,18 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons" -- icons
   use "kyazdani42/nvim-tree.lua" -- file explorer
-  use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} } -- bufferline
+  use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } } -- bufferline
   use "numToStr/Comment.nvim" -- comment
   use "sitiom/nvim-numbertoggle" -- hybrid line numbers
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- status line
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } } -- telescope
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- syntax highlighting
 
   -- color schemes
   use "projekt0n/github-nvim-theme"
   use "yorik1984/newpaper.nvim"
   use "noahfrederick/vim-hemisu"
+  use "NTBBloodbath/doom-one.nvim"
 
   -- completion
   use "hrsh7th/nvim-cmp"
@@ -67,7 +70,7 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
-	-- LSP
+  -- LSP
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"

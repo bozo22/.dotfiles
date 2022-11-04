@@ -25,7 +25,7 @@ nvim_tree.setup {
   remove_keymaps = false,
   select_prompts = false,
   view = {
-    adaptive_size = true,
+    adaptive_size = false,
     centralize_selection = false,
     width = 30,
     hide_root_folder = false,
@@ -126,8 +126,8 @@ nvim_tree.setup {
     args = {},
   },
   diagnostics = {
-    enable = false,
-    show_on_dirs = false,
+    enable = true,
+    show_on_dirs = true,
     debounce_delay = 50,
     icons = {
       hint = "",
