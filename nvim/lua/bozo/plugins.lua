@@ -40,43 +40,20 @@ packer.init {
 
 return packer.startup(function(use)
 
-  -- basic plugins
   use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
+  use "kyazdani42/nvim-web-devicons" -- icons
+  use "kyazdani42/nvim-tree.lua" -- file explorer
+  use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} } -- bufferline
+  use "numToStr/Comment.nvim" -- comment
+  use "sitiom/nvim-numbertoggle" -- hybrid line numbers
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } } -- status line
+
+  -- color schemes
+  use "projekt0n/github-nvim-theme"
   use "yorik1984/newpaper.nvim"
   use "noahfrederick/vim-hemisu"
-  use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
-
-  -- hybrid line numbers
-  use {
-     "sitiom/nvim-numbertoggle",
-     config = function()
-        require("numbertoggle").setup()
-     end
-  }
-
-  -- color scheme
-  use({ 'projekt0n/github-nvim-theme' })
-
-  -- status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-
-  -- comment
-  use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
-  }
 
   -- completion
   use "hrsh7th/nvim-cmp"
@@ -91,9 +68,9 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets"
 
 	-- LSP
-  use "williamboman/mason.nvim" -- simple to use language server installer
-  use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
-  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+  use "neovim/nvim-lspconfig"
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
