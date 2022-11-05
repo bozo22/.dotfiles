@@ -33,7 +33,7 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  background = "light",
+  background = "dark",
 }
 
 vim.opt.shortmess:append "c"
@@ -45,14 +45,5 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
-
--- only highlight line number in insert mode
-vim.cmd "autocmd InsertEnter * set culopt=number"
-vim.cmd "autocmd InsertLeave * set culopt=both"
-
--- vim.cmd [[augroup AutoDeleteNetrwHiddenBuffers 
---           au!
---           au FileType netrw setlocal bufhidden=wipe
---           augroup end]]
 
 -- vim.cmd "autocmd InsertEnter,InsertLeave * set cul!"

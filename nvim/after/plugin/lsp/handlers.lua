@@ -21,7 +21,7 @@ local lsp_keymaps = function(bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 local function lsp_highlight_document()
@@ -68,6 +68,16 @@ require("mason-lspconfig").setup_handlers {
   end
 
 }
+
+local null_ls = require("null-ls")
+
+require("mason-null-ls").setup_handlers({
+  function(source_name, methods)
+    require("mason-null-ls.automatic_setup")(source_name, methods)
+  end,
+})
+
+null_ls.setup()
 
 local config = {
   virtual_text = {
