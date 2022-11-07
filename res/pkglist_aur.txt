@@ -5,6 +5,7 @@ libinput-gestures
 ly
 megasync-bin
 minecraft-launcher
+neovim-remote
 nerd-fonts-fira-code
 nerd-fonts-go-mono
 nerd-fonts-ibm-plex-mono

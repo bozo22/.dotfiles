@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-nvim_tree.setup {
+nvim_tree.setup({
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -37,7 +37,11 @@ nvim_tree.setup {
     mappings = {
       custom_only = false,
       list = {
-        -- user mappings go here
+        { key = "<BS>", action = "toggle_dotfiles" },
+        { key = "a", action = "rename" },
+        { key = "d", action = "cut" },
+        { key = "v", action = "toggle_mark" },
+        { key = "t", action = "create" },
       },
     },
     float = {
@@ -116,11 +120,11 @@ nvim_tree.setup {
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
-    update_root = false,
+    enable = true,
+    update_root = true,
     ignore_list = {},
   },
-  ignore_ft_on_setup = {},
+  ignore_ft_on_setup = {"alpha","startify","dashboard"},
   system_open = {
     cmd = "",
     args = {},
@@ -212,4 +216,4 @@ nvim_tree.setup {
   notify = {
     threshold = vim.log.levels.INFO,
   },
-}
+})

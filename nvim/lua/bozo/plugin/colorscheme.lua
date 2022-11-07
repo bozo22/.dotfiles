@@ -13,8 +13,6 @@
 --     }
 --   end
 -- })
-
--- only highlight line number in insert mode
 -- vim.cmd "autocmd InsertEnter * set culopt=number"
 -- vim.cmd "autocmd InsertLeave * set culopt=both"
 

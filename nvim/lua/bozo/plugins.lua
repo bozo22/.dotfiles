@@ -42,9 +42,9 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
+	use("goolord/alpha-nvim")
 	use("kyazdani42/nvim-web-devicons") -- icons
 	use("kyazdani42/nvim-tree.lua") -- file explorer
-	use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
 	use("numToStr/Comment.nvim") -- comment
 	use("sitiom/nvim-numbertoggle") -- hybrid line numbers
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }) -- status line
@@ -55,7 +55,8 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim") -- terminal
 	use("lewis6991/impatient.nvim") -- faster startup
 	use("lukas-reineke/indent-blankline.nvim") -- indentline
-	use("goolord/alpha-nvim")
+	use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
+	use("ahmedkhalf/project.nvim")
 
 	-- color schemes
 	use("projekt0n/github-nvim-theme")

@@ -20,7 +20,9 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- keymap("n", "<esc><esc>", ":silent! nohls<cr>", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>f", ":Telescope find_files <CR>", opts)
+keymap("n", "<leader>p", "<cmd>lua require'telescope'.extensions.projects.projects(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>t", ":Telescope live_grep<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

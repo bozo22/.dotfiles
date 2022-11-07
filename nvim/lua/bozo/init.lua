@@ -1,3 +1,5 @@
 require("bozo.options")
 require("bozo.keymaps")
 require("bozo.plugins")
+require("bozo.plugin")
+require("bozo.lsp")
