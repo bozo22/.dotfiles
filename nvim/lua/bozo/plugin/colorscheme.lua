@@ -1,18 +1,18 @@
 -- Github light
--- require('github-theme').setup({
---   theme_style = "light_default",
---   sidebars = {"qf", "vista_kind", "terminal", "packer"},
---
---   overrides = function(c)
---      return {
---       BufferCurrent = {style = "bold"},
---       BufferCurrentMod = {style = "bold", fg = c.warning},
--- --     BufferTabpageFill = {bg = c.bg},
--- --      CursorLine = {bg = c.bg2},
--- --      VertSplit = {fg = c.bg}
---     }
---   end
--- })
+require('github-theme').setup({
+  theme_style = "light_default",
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+
+  overrides = function(c)
+     return {
+      BufferCurrent = {style = "bold"},
+      BufferCurrentMod = {style = "bold", fg = c.warning},
+--     BufferTabpageFill = {bg = c.bg},
+--      CursorLine = {bg = c.bg2},
+--      VertSplit = {fg = c.bg}
+    }
+  end
+})
 -- vim.cmd "autocmd InsertEnter * set culopt=number"
 -- vim.cmd "autocmd InsertLeave * set culopt=both"
 
@@ -38,7 +38,7 @@ require('kanagawa').setup({
 })
 
 -- setup must be called before loading
-vim.cmd("colorscheme kanagawa")
+--vim.cmd("colorscheme kanagawa")
 
 -- Newpaper
 --[[ require("newpaper").setup({
