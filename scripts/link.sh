@@ -4,7 +4,7 @@
 rm -rf ~/{.bashrc,.vimrc,.Xresources,.ghc,.gitconfig}
 sudo rm -f /etc/default/grub
 sudo rm -f /etc/bluetooth/main.conf
-rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh}
+rm -rf ~/.config/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh,awesome}
 
 # Create symlinks
 
@@ -18,8 +18,7 @@ sudo ln -s ~/.dotfiles/system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.
 sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
 sudo ln -s ~/.dotfiles/system/main.conf /etc/bluetooth
 ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
-for i in $dirs ; do ln -s $HOME/.dotfiles/$i $HOME/.config/$i ; done
-ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh} ~/.config
+ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh,awesome} ~/.config
 
 # Additional config
 
