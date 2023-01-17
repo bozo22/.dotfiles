@@ -21,13 +21,6 @@ require("awful.hotkeys_popup.keys")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-	naughty.notify({
-		preset = naughty.config.presets.critical,
-		title = "Oops, there were errors during startup!",
-		text = awesome.startup_errors,
-	})
-end
 
 -- Handle runtime errors after startup
 do
@@ -40,7 +33,6 @@ do
 		in_error = true
 
 		naughty.notify({
-			preset = naughty.config.presets.critical,
 			title = "Oops, an error happened!",
 			text = tostring(err),
 		})
@@ -56,13 +48,12 @@ beautiful.font = "JetBrains Mono 10"
 beautiful.wallpaper = "/home/bozo/.dotfiles/res/wallpaper.jpg"
 -- gears.wallpaper = "$HOME/.dotfiles/res/wallpaper.jpg"
 beautiful.border_width = 1
-beautiful.bg_focus = "#a475f9"
+beautiful.bg_focus = "#7E9CD8"
 beautiful.fg_normal = "#ccc"
 beautiful.taglist_squares_sel = nil
 beautiful.taglist_squares_unsel = nil
 beautiful.taglist_bg_occupied = "#373B41"
 beautiful.tasklist_disable_icon = true
-beautiful.tasklist_spacing = 5
 beautiful.systray_icon_spacing = 10
 
 -- This is used later as the default terminal and editor to run.
@@ -403,12 +394,12 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "l", function()
 		awful.tag.incncol(-1, nil, true)
 	end, { description = "decrease the number of columns", group = "layout" }),
-	awful.key({ modkey }, "space", function()
-		awful.layout.inc(1)
-	end, { description = "select next", group = "layout" }),
-	awful.key({ modkey, "Shift" }, "space", function()
-		awful.layout.inc(-1)
-	end, { description = "select previous", group = "layout" }),
+	-- awful.key({ modkey }, "space", function()
+	-- 	awful.layout.inc(1)
+	-- end, { description = "select next", group = "layout" }),
+	-- awful.key({ modkey, "Shift" }, "space", function()
+	-- 	awful.layout.inc(-1)
+	-- end, { description = "select previous", group = "layout" }),
 
 	awful.key({ modkey, "Control" }, "n", function()
 		local c = awful.client.restore()
@@ -432,13 +423,13 @@ globalkeys = gears.table.join(
 		})
 	end, { description = "lua execute prompt", group = "awesome" }),
 	-- Menubar
-	awful.key({ modkey }, "p", function()
-		menubar.show()
-	end, { description = "show the menubar", group = "launcher" })
+	awful.key({ modkey, "Shift" }, "r", function()
+		awful.spawn.with_shell('dmenu_run -h 25 -sb "#a475f9" -fn "JetBrains Mono-10" -i -dim 0.4')
+	end, { description = "open dmenu_run", group = "launcher" })
 )
 
 clientkeys = gears.table.join(
-	awful.key({ modkey }, "f", function(c)
+	awful.key({ modkey, "Shift" }, "f", function(c)
 		c.fullscreen = not c.fullscreen
 		c:raise()
 	end, { description = "toggle fullscreen", group = "client" }),
@@ -446,8 +437,8 @@ clientkeys = gears.table.join(
 		c:kill()
 	end, { description = "close", group = "client" }),
 	awful.key(
-		{ modkey, "Control" },
-		"space",
+		{ modkey, "Shift" },
+		"s",
 		awful.client.floating.toggle,
 		{ description = "toggle floating", group = "client" }
 	),
@@ -508,6 +499,12 @@ for i = 1, 9 do
 				if tag then
 					client.focus:move_to_tag(tag)
 				end
+			end
+
+			local screen = awful.screen.focused()
+			local tag = screen.tags[i]
+			if tag then
+				tag:view_only()
 			end
 		end, { description = "move focused client to tag #" .. i, group = "tag" }),
 		-- Toggle tag on focused client.
@@ -583,7 +580,7 @@ awful.rules.rules = {
 			keys = clientkeys,
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			placement = awful.placement.centered + awful.placement.no_overlap + awful.placement.no_offscreen,
 		},
 	},
 
@@ -594,7 +591,8 @@ awful.rules.rules = {
 				"DTA", -- Firefox addon DownThemAll.
 				"copyq", -- Includes session name in class.
 				"pinentry",
-        "megasync"
+        "megasync",
+        "blueberry"
 			},
 			class = {
 				"Arandr",
@@ -622,6 +620,13 @@ awful.rules.rules = {
 		},
 		properties = { floating = true },
 	},
+
+-- Spawn floating clients centered
+    { rule_any = {floating = true},
+        properties = {
+            placement = awful.placement.centered
+        }
+    },
 
 	-- Add titlebars to normal clients and dialogs
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = false } },
@@ -707,5 +712,6 @@ awful.spawn.with_shell(
 		.. "xset r rate 350 50;"
 		.. 'xinput --set-prop 9 "libinput Accel Speed" -0.4;'
 		.. "picom & disown;"
+    .. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
     .. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
 )
