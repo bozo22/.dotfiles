@@ -219,10 +219,10 @@ awful.screen.connect_for_each_screen(function(s)
 	theme.layout_txt_fairh = "[fh]"
 	theme.layout_txt_spiral = "[s]"
 	theme.layout_txt_dwindle = "[d]"
-	theme.layout_txt_max = "[M]"
+	theme.layout_txt_max = "[+]"
 	theme.layout_txt_fullscreen = "[F]"
 	theme.layout_txt_magnifier = "[m]"
-	theme.layout_txt_floating = "[*]"
+	theme.layout_txt_floating = "><>"
 
 	-- Textual layoutbox
 	local function update_txt_layoutbox(s)
@@ -371,7 +371,7 @@ globalkeys = gears.table.join(
 		awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
 	awful.key({ modkey }, "w", function()
-		awful.spawn("firefox")
+		awful.spawn("firefox", false)
 	end, { description = "open firefox", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
@@ -424,7 +424,7 @@ globalkeys = gears.table.join(
 	end, { description = "lua execute prompt", group = "awesome" }),
 	-- Menubar
 	awful.key({ modkey, "Shift" }, "r", function()
-		awful.spawn.with_shell('dmenu_run -h 25 -sb "#a475f9" -fn "JetBrains Mono-10" -i -dim 0.4')
+		awful.spawn.with_shell('dmenu_run -h 25 -sb "#7E9CD8" -fn "JetBrains Mono-10" -i -dim 0.4')
 	end, { description = "open dmenu_run", group = "launcher" })
 )
 
@@ -592,7 +592,8 @@ awful.rules.rules = {
 				"copyq", -- Includes session name in class.
 				"pinentry",
         "megasync",
-        "blueberry"
+        "blueberry",
+        "pavucontrol"
 			},
 			class = {
 				"Arandr",
@@ -707,11 +708,13 @@ awful.spawn.with_shell(
 	'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;'
 		.. 'xrdb -merge <<< "awesome.started:true";'
 		-- list each of your autostart commands, followed by ; inside single quotes, followed by ..
-		.. "setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape;"
+    .. "autorandr -c;"
 		.. "libinput-gestures-setup start;"
-		.. "xset r rate 350 50;"
 		.. 'xinput --set-prop 9 "libinput Accel Speed" -0.4;'
 		.. "picom & disown;"
     .. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
     .. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
 )
+
+awful.spawn.with_shell("setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape")
+awful.spawn.with_shell("xset r rate 350 50")

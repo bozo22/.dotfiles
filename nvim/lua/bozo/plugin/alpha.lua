@@ -5,7 +5,7 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.buttons.val = {
-	dashboard.button("f", "  Find file", ":Telescope find_file<CR>"),
+	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("p", "  Find project", "<cmd>lua require'telescope'.extensions.projects.projects(require('telescope.themes').get_dropdown({ previewer = false }))<cr>"),
 
