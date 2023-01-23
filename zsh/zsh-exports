@@ -2,10 +2,14 @@
 # HISTFILE="$XDG_DATA_HOME"/zsh/history
 HISTSIZE=1000000
 SAVEHIST=1000000
-export PATH="$HOME/.local/bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
-path+=('/home/bozo/.local/share/gem/ruby/3.0.0/bin')
+path+=~/.local/share/gem/ruby/3.0.0/bin
+path+=~/.emacs.d/bin
+path+=~/.ghcup/bin
+path+=~/.local/bin
+path+=~/.cabal/bin
+export PATH

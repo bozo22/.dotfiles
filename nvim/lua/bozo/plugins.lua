@@ -44,7 +44,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("goolord/alpha-nvim")
 	use("kyazdani42/nvim-web-devicons") -- icons
-	use("kyazdani42/nvim-tree.lua") -- file explorer
+	use("nvim-tree/nvim-tree.lua") -- file explorer
 	use("numToStr/Comment.nvim") -- comment
 	use("sitiom/nvim-numbertoggle") -- hybrid line numbers
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }) -- status line
@@ -56,11 +56,13 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim") -- faster startup
 	use("lukas-reineke/indent-blankline.nvim") -- indentline
 	use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
-	use("ahmedkhalf/project.nvim")
+	use("ahmedkhalf/project.nvim") -- project
+	use("nvim-orgmode/orgmode") -- emacs org-mode
+  use('j-hui/fidget.nvim') -- Useful status updates for LSP
+  use('tpope/vim-sleuth')
 
 	-- color schemes
 	use("projekt0n/github-nvim-theme")
-	use("yorik1984/newpaper.nvim")
 	use("noahfrederick/vim-hemisu")
 	use("NTBBloodbath/doom-one.nvim")
 	use("rebelot/kanagawa.nvim")

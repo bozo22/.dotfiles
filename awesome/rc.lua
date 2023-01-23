@@ -32,14 +32,12 @@ do
 		end
 		in_error = true
 
-		naughty.notify({
-			title = "Oops, an error happened!",
-			text = tostring(err),
-		})
 		in_error = false
 	end)
 end
 -- }}}
+
+awful.spawn.with_shell("autorandr -c")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -317,8 +315,10 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
-	awful.key({ modkey }, "[", awful.tag.viewprev, { description = "view previous", group = "tag" }),
-	awful.key({ modkey }, "]", awful.tag.viewnext, { description = "view next", group = "tag" }),
+	-- awful.key({ modkey }, "[", awful.tag.viewprev, { description = "view previous", group = "tag" }),
+	awful.key({ modkey }, "h", awful.tag.viewprev, { description = "view previous", group = "tag" }),
+	-- awful.key({ modkey }, "]", awful.tag.viewnext, { description = "view next", group = "tag" }),
+	awful.key({ modkey }, "l", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
 	awful.key({ modkey }, "j", function()
@@ -376,18 +376,18 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
-	awful.key({ modkey }, "l", function()
-		awful.tag.incmwfact(0.05)
-	end, { description = "increase master width factor", group = "layout" }),
-	awful.key({ modkey }, "h", function()
-		awful.tag.incmwfact(-0.05)
-	end, { description = "decrease master width factor", group = "layout" }),
-	awful.key({ modkey, "Shift" }, "h", function()
-		awful.tag.incnmaster(1, nil, true)
-	end, { description = "increase the number of master clients", group = "layout" }),
-	awful.key({ modkey, "Shift" }, "l", function()
-		awful.tag.incnmaster(-1, nil, true)
-	end, { description = "decrease the number of master clients", group = "layout" }),
+	-- awful.key({ modkey }, "l", function()
+	-- 	awful.tag.incmwfact(0.05)
+	-- end, { description = "increase master width factor", group = "layout" }),
+	-- awful.key({ modkey }, "h", function()
+	-- 	awful.tag.incmwfact(-0.05)
+	-- end, { description = "decrease master width factor", group = "layout" }),
+	-- awful.key({ modkey, "Shift" }, "h", function()
+	-- 	awful.tag.incnmaster(1, nil, true)
+	-- end, { description = "increase the number of master clients", group = "layout" }),
+	-- awful.key({ modkey, "Shift" }, "l", function()
+	-- 	awful.tag.incnmaster(-1, nil, true)
+	-- end, { description = "decrease the number of master clients", group = "layout" }),
 	awful.key({ modkey, "Control" }, "h", function()
 		awful.tag.incncol(1, nil, true)
 	end, { description = "increase the number of columns", group = "layout" }),
@@ -516,7 +516,23 @@ for i = 1, 9 do
 				end
 			end
 		end, { description = "toggle focused client on tag #" .. i, group = "tag" }),
-		awful.key({ modkey, "Shift" }, "]", function()
+
+		-- awful.key({ modkey, "Shift" }, "]", function()
+		-- 	local screen = awful.screen.focused()
+		-- 	local t = screen.selected_tag
+		-- 	if t then
+		-- 		local idx = t.index + 1
+		-- 		if idx > #screen.tags then
+		-- 			idx = 1
+		-- 		end
+		-- 		if client.focus then
+		-- 			client.focus:move_to_tag(screen.tags[idx])
+		-- 			screen.tags[idx]:view_only()
+		-- 		end
+		-- 	end
+		-- end, { description = "move focused client to next tag and view tag", group = "tag" }),
+
+		awful.key({ modkey, "Shift" }, "l", function()
 			local screen = awful.screen.focused()
 			local t = screen.selected_tag
 			if t then
@@ -531,7 +547,22 @@ for i = 1, 9 do
 			end
 		end, { description = "move focused client to next tag and view tag", group = "tag" }),
 
-		awful.key({ modkey, "Shift" }, "[", function()
+		-- awful.key({ modkey, "Shift" }, "[", function()
+		-- 	local screen = awful.screen.focused()
+		-- 	local t = screen.selected_tag
+		-- 	if t then
+		-- 		local idx = t.index - 1
+		-- 		if idx == 0 then
+		-- 			idx = #screen.tags
+		-- 		end
+		-- 		if client.focus then
+		-- 			client.focus:move_to_tag(screen.tags[idx])
+		-- 			screen.tags[idx]:view_only()
+		-- 		end
+		-- 	end
+		-- end, { description = "move focused client to previous tag and view tag", group = "tag" }),
+
+		awful.key({ modkey, "Shift" }, "h", function()
 			local screen = awful.screen.focused()
 			local t = screen.selected_tag
 			if t then
@@ -708,11 +739,11 @@ awful.spawn.with_shell(
 	'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;'
 		.. 'xrdb -merge <<< "awesome.started:true";'
 		-- list each of your autostart commands, followed by ; inside single quotes, followed by ..
-    .. "autorandr -c;"
 		.. "libinput-gestures-setup start;"
 		.. 'xinput --set-prop 9 "libinput Accel Speed" -0.4;'
 		.. "picom & disown;"
     .. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
+    .. 'dropbox;'
     .. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
 )
 

@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/doom-one.nvim",
     url = "https://github.com/NTBBloodbath/doom-one.nvim"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -174,11 +179,6 @@ _G.packer_plugins = {
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["newpaper.nvim"] = {
-    loaded = true,
-    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/newpaper.nvim",
-    url = "https://github.com/yorik1984/newpaper.nvim"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -207,7 +207,7 @@ _G.packer_plugins = {
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -218,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  orgmode = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/orgmode",
+    url = "https://github.com/nvim-orgmode/orgmode"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -253,6 +258,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bozo/.local/share/nvim/site/pack/packer/start/vim-hemisu",
     url = "https://github.com/noahfrederick/vim-hemisu"
+  },
+  ["vim-sleuth"] = {
+    loaded = true,
+    path = "/home/bozo/.local/share/nvim/site/pack/packer/start/vim-sleuth",
+    url = "https://github.com/tpope/vim-sleuth"
   }
 }
 
