@@ -1,0 +1,4 @@
+awesome
+dunst
+picom
+ttf-jetbrains-mono

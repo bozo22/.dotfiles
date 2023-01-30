@@ -14,13 +14,8 @@ ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/urxvt/.Xresources ~/.Xresources
 ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.ghc ~/.ghc
-sudo ln -s ~/.dotfiles/system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
-sudo ln -s ~/.dotfiles/system/grub /etc/default/grub
-sudo ln -s ~/.dotfiles/system/main.conf /etc/bluetooth
-ln -s ~/.dotfiles/system/libinput-gestures.conf ~/.config/libinput-gestures.conf
+sudo ln -s ~/.dotfiles/x/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 ln -s ~/.dotfiles/{bspwm,sxhkd,polybar,rofi,picom,kitty,nvim,ranger,dunst,zathura,zsh,awesome} ~/.config
 
 # Additional config
 
-mkdir $HOME/screenshots
-chmod go-w $HOME/.ghc/ghci.conf

@@ -1,4 +1,5 @@
 anaconda
+dmenu2
 google-chrome
 ksuperkey
 libinput-gestures
@@ -6,17 +7,13 @@ ly
 megasync-bin
 minecraft-launcher
 neovim-remote
-nerd-fonts-fira-code
-nerd-fonts-go-mono
-nerd-fonts-ibm-plex-mono
 nitch
 parsec-bin
 paru
 rcon-cli-bin
-snap-pac-grub
-snapper-gui-git
 spotify
 teams
+update-grub
 visual-studio-code-bin
 yaru-colors-gtk-theme
 yay
