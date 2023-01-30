@@ -24,3 +24,12 @@ vim
 wget
 wpa_supplicant
 xorg
+firefox
+kitty
+htop
+zip
+zoxide
+zsh
+neovim
+nautilus
+python-pip

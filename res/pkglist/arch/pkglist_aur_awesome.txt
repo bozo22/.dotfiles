@@ -1,0 +1,3 @@
+dmenu2
+ksuperkey
+ly

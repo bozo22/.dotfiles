@@ -1,0 +1,3 @@
+nitch
+update-grub
+yay

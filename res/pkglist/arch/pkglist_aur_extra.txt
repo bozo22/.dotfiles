@@ -1,0 +1,7 @@
+anaconda
+google-chrome
+megasync-bin
+spotify
+teams
+visual-studio-code-bin
+
