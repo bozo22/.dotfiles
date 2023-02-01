@@ -2,3 +2,4 @@ awesome
 dunst
 picom
 ttf-jetbrains-mono
+autorandr

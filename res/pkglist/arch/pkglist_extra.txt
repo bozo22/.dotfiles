@@ -2,13 +2,12 @@ emacs
 fzf
 gparted
 grub-customizer
-highlight
 mpv
 ncdu
 nomacs
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-ranger
 zathura
 zathura-pdf-mupdf
+nautilus

@@ -31,5 +31,6 @@ zip
 zoxide
 zsh
 neovim
-nautilus
 python-pip
+ranger
+highlight

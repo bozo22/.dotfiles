@@ -610,7 +610,7 @@ awful.rules.rules = {
 			raise = true,
 			keys = clientkeys,
 			buttons = clientbuttons,
-			screen = awful.screen.preferred,
+			screen = awful.screen.focused,
 			placement = awful.placement.centered + awful.placement.no_overlap + awful.placement.no_offscreen,
 		},
 	},
@@ -680,6 +680,16 @@ client.connect_signal("manage", function(c)
 		-- Prevent clients from being unreachable after screen count changes.
 		awful.placement.no_offscreen(c)
 	end
+end)
+
+client.connect_signal('request::manage', function(c)
+    -- Center dialogs over parent
+    if c.transient_for then
+        awful.placement.centered(c, {
+            parent = c.transient_for
+        })
+        awful.placement.no_offscreen(c)
+    end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
