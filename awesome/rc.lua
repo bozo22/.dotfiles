@@ -754,6 +754,7 @@ awful.spawn.with_shell(
 		.. "picom & disown;"
     .. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
     .. 'dropbox;'
+    .. 'betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim,blur;'
     .. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
 )
 

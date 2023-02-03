@@ -1,3 +1,4 @@
 dmenu2
 ksuperkey
 ly
+betterlockscreen
