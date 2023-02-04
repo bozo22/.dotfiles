@@ -8,6 +8,9 @@ nomacs
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+nerd-fonts-sf-mono
 zathura
 zathura-pdf-mupdf
 nautilus
+qbittorrent
+texlive-most

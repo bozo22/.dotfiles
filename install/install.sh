@@ -66,7 +66,7 @@ then
     if [ "$agda" = "y" ]
     then
         cabal install Agda
-        agda-mode setup
+        # agda-mode setup
     fi
 fi
 

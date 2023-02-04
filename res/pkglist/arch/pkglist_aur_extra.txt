@@ -4,4 +4,3 @@ megasync-bin
 spotify
 teams
 visual-studio-code-bin
-
