@@ -30,6 +30,7 @@ htop
 zip
 zoxide
 zsh
+fzf
 neovim
 python-pip
 ranger

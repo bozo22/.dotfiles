@@ -1,5 +1,4 @@
 emacs
-fzf
 gparted
 grub-customizer
 mpv
@@ -14,3 +13,5 @@ zathura-pdf-mupdf
 nautilus
 qbittorrent
 texlive-most
+gthumb
+arandr

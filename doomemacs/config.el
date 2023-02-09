@@ -1,94 +1,78 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
-
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;;
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
-;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
-;; refresh your font settings. If Emacs still can't find your font, it likely
-;; wasn't installed correctly. Font issues are rarely Doom issues!
-
+;; font
 (setq doom-font (font-spec :family "SF Mono" :size 14 :weight 'regular))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
+;; theme
 (setq doom-theme 'doom-tomorrow-day)
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
+;; line numbers
 (setq display-line-numbers-type 'relative)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
+;; org
 (setq org-directory "~/org/")
 (after! org
-  (setq org-image-actual-width 260)
+  (setq org-image-actual-width 170)
   (setq org-attach-auto-tag nil)
+  (setq org-agenda-span 'week)
+  (setq org-startup-with-inline-images nil)
 )
 
 ;; org journal
 (after! org-journal
-  (setq org-journal-dir "~/journal/")
-  (setq org-journal-time-format "")
-  (setq org-journal-time-prefix "")
+  (setq org-journal-dir "~/journal/entries/")
+  (setq org-journal-time-format "%H:%M")
+  ;; (setq org-journal-time-prefix "")
   (setq org-journal-file-header "#+STARTUP: showeverything")
-  (setq org-journal-date-format "%Y. %m. %d. %A\n:PROPERTIES:\n:DIR: ~/journal/%Y/%m/%d/img/\n:END:")
+  (setq org-journal-date-format "%Y. %m. %d. %A\n:PROPERTIES:\n:DIR: ~/journal/entries/%Y/%m/%d/img/\n:END:")
   (setq org-journal-file-format "%Y/%m/%d/%Y-%m-%d")
+  (setq org-extend-today-until 8)
 )
+
+;; keybinds
+(general-auto-unbind-keys t)
+
+(map! :leader
+      "j j" #'org-journal-new-entry
+      "j o" #'org-journal-open-current-journal-file
+      "j d" #'org-journal-new-date-entry
+      "j s" #'org-journal-search-forever
+      "SPC" #'org-agenda-list)
+
+(map! :leader
+      :map org-agenda-mode-map
+      "w" #'org-agenda-week-view
+      "d" #'org-agenda-day-view)
+
+(defun export-journal ()
+  (interactive)
+  (shell-command "python3 /home/bozo/journal/export/export.py"))
+(map! :leader
+      "j e" #'export-journal)
+
 
 ;; disable exit confirmation
 (setq confirm-kill-emacs nil)
 
-;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
-;;
-;;   (after! PACKAGE
-;;     (setq x y))
-;;
-;; The exceptions to this rule:
-;;
-;;   - Setting file/directory variables (like `org-directory')
-;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+').
-;;
-;; Here are some additional functions/macros that will help you configure Doom.
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
-;; etc).
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+;; set path correctly
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; agda-mode
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
+
+
+(defun my/org-latex-format-headline-function
+    (todo _todo-type priority text tags _info)
+  "Modified format function for a headline: enclose tags in boxes.
+See `org-latex-format-headline-function' for details."
+  (concat
+   (and todo (format "{\\bfseries\\sffamily %s} " todo))
+   (and priority (format "\\framebox{\\#%c} " priority))
+   text
+   (and tags
+    (format "\\hfill{}\\textsc{%s}"
+        (mapconcat (lambda (x) (format "\\framebox{\\tiny %s}" (org-latex--protect-text x))) tags ":")))))
+
+(setq org-latex-format-headline-function #'my/org-latex-format-headline-function)

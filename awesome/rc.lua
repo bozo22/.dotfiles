@@ -14,6 +14,9 @@ local beautiful = require("beautiful")
 -- local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- local lain = require("lain")
+-- local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+-- local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -42,7 +45,7 @@ awful.spawn.with_shell("autorandr -c")
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "JetBrains Mono 10"
+beautiful.font = "SF Mono 10"
 beautiful.wallpaper = "/home/bozo/.dotfiles/res/wallpaper.jpg"
 -- gears.wallpaper = "$HOME/.dotfiles/res/wallpaper.jpg"
 beautiful.border_width = 1
@@ -121,7 +124,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("%H:%M ",10)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -259,7 +262,7 @@ awful.screen.connect_for_each_screen(function(s)
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		buttons = taglist_buttons,
-    squares_resize = true
+		squares_resize = true,
 	})
 
 	-- Create a tasklist widget
@@ -269,22 +272,29 @@ awful.screen.connect_for_each_screen(function(s)
 		buttons = tasklist_buttons,
 	})
 
+	tbox_separator = wibox.widget.textbox(" // ")
+	-- local mybattery = lain.widget.bat({
+	-- 	settings = function()
+	-- 		widget:set_markup(lain.util.markup(beautiful.fg_normal, " " .. bat_now.perc .. "% "))
+	-- 	end,
+	-- })
+
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s, height = 25, fg_focus = "#ff8000" })
-local systray = wibox.widget.systray()
-systray.forced_height = 10
-local systray_margin = wibox.container.margin()
-systray_margin.top = 3
-systray_margin.bottom = 3
-systray_margin.left = 10
-systray_margin:set_widget(systray)
+	local systray = wibox.widget.systray()
+	systray.forced_height = 10
+	local systray_margin = wibox.container.margin()
+	systray_margin.top = 3
+	systray_margin.bottom = 3
+	systray_margin.left = 10
+	systray_margin:set_widget(systray)
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
-      spacing = 10,
+			spacing = 10,
 			-- mylauncher,
 			s.mytaglist,
 			s.mytxtlayoutbox,
@@ -293,9 +303,33 @@ systray_margin:set_widget(systray)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-      spacing = 10,
-      systray_margin,
+			spacing = 5,
+			systray_margin,
+			tbox_separator,
 			mykeyboardlayout,
+			tbox_separator,
+			require("battery-widget")({
+				ac = "AC",
+				adapter = "BAT0",
+				ac_prefix = "+ ",
+				battery_prefix = "- ",
+				percent_colors = {
+					{ 10, "red" },
+					{ 50, beautiful.fg_normal },
+					{ 999, beautiful.fg_normal },
+				},
+				listen = true,
+				timeout = 10,
+				widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
+				widget_font = "SF Mono 10",
+				tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
+				alert_threshold = 5,
+				alert_timeout = 0,
+				alert_title = "Low battery !",
+				alert_text = "${AC_BAT}${time_est}",
+				warn_full_battery = false,
+			}),
+			tbox_separator,
 			mytextclock,
 		},
 	})
@@ -321,6 +355,23 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "l", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
+	awful.key({}, "XF86MonBrightnessUp", function()
+		brightness_widget:inc()
+	end, { description = "increase brightness", group = "custom" }),
+	awful.key({}, "XF86MonBrightnessDown", function()
+		brightness_widget:dec()
+	end, { description = "decrease brightness", group = "custom" }),
+
+	awful.key({}, "XF86AudioRaiseVolume", function()
+		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changevolume.sh 5%+")
+	end),
+	awful.key({}, "XF86AudioLowerVolume", function()
+		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changevolume.sh 5%-")
+	end),
+	awful.key({}, "XF86AudioMute", function()
+		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changevolume.sh toggle")
+	end),
+
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
 	end, { description = "focus next by index", group = "client" }),
@@ -340,22 +391,22 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "j", function()
 		awful.screen.focus_relative(1)
 	end, { description = "focus the next screen", group = "screen" }),
-	awful.key({ modkey, }, "o", function()
+	awful.key({ modkey }, "o", function()
 		awful.screen.focus_relative(1)
 	end, { description = "focus the next screen", group = "screen" }),
 	awful.key({ modkey, "Control" }, "k", function()
 		awful.screen.focus_relative(-1)
 	end, { description = "focus the previous screen", group = "screen" }),
-	awful.key({ modkey,           }, "t", function()
+	awful.key({ modkey }, "t", function()
 		awful.layout.set(awful.layout.suit.tile)
 	end, { description = "set layout to tile", group = "layout" }),
-	awful.key({ modkey,           }, "f", function()
+	awful.key({ modkey }, "f", function()
 		awful.layout.set(awful.layout.suit.max.fullscreen)
 	end, { description = "set layout to fullscreen", group = "layout" }),
-	awful.key({ modkey,           }, "s", function()
+	awful.key({ modkey }, "s", function()
 		awful.layout.set(awful.layout.suit.floating)
 	end, { description = "set layout to floating", group = "layout" }),
-	awful.key({ modkey,           }, "m", function()
+	awful.key({ modkey }, "m", function()
 		awful.layout.set(awful.layout.suit.max)
 	end, { description = "set layout to max", group = "layout" }),
 	awful.key({ modkey }, "u", awful.client.urgent.jumpto, { description = "jump to urgent client", group = "client" }),
@@ -370,6 +421,9 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Return", function()
 		awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
+	awful.key({ modkey }, "e", function()
+		awful.spawn("emacs", false)
+	end, { description = "open emacs", group = "launcher" }),
 	awful.key({ modkey }, "w", function()
 		awful.spawn("firefox", false)
 	end, { description = "open firefox", group = "launcher" }),
@@ -456,7 +510,7 @@ clientkeys = gears.table.join(
 		-- minimized, since minimized clients can't have the focus.
 		c.minimized = true
 	end, { description = "minimize", group = "client" }),
-	awful.key({ modkey, "Shift"}, "m", function(c)
+	awful.key({ modkey, "Shift" }, "m", function(c)
 		c.maximized = not c.maximized
 		c:raise()
 	end, { description = "(un)maximize", group = "client" }),
@@ -622,9 +676,9 @@ awful.rules.rules = {
 				"DTA", -- Firefox addon DownThemAll.
 				"copyq", -- Includes session name in class.
 				"pinentry",
-        "megasync",
-        "blueberry",
-        "pavucontrol"
+				"megasync",
+				"blueberry",
+				"pavucontrol",
 			},
 			class = {
 				"Arandr",
@@ -653,12 +707,10 @@ awful.rules.rules = {
 		properties = { floating = true },
 	},
 
--- Spawn floating clients centered
-    { rule_any = {floating = true},
-        properties = {
-            placement = awful.placement.centered
-        }
-    },
+	-- Spawn floating clients centered
+	{ rule_any = { floating = true }, properties = {
+		placement = awful.placement.centered,
+	} },
 
 	-- Add titlebars to normal clients and dialogs
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = false } },
@@ -682,14 +734,14 @@ client.connect_signal("manage", function(c)
 	end
 end)
 
-client.connect_signal('request::manage', function(c)
-    -- Center dialogs over parent
-    if c.transient_for then
-        awful.placement.centered(c, {
-            parent = c.transient_for
-        })
-        awful.placement.no_offscreen(c)
-    end
+client.connect_signal("request::manage", function(c)
+	-- Center dialogs over parent
+	if c.transient_for then
+		awful.placement.centered(c, {
+			parent = c.transient_for,
+		})
+		awful.placement.no_offscreen(c)
+	end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -752,10 +804,12 @@ awful.spawn.with_shell(
 		.. "libinput-gestures-setup start;"
 		.. 'xinput --set-prop 9 "libinput Accel Speed" -0.4;'
 		.. "picom & disown;"
-    .. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
-    .. 'dropbox;'
-    .. 'betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim,blur;'
-    .. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
+		.. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
+		.. "dunst & disown;"
+		.. "betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim,blur;"
+		.. "nm-applet & disown;"
+		.. "blueman-applet & disown;"
+		.. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
 )
 
 awful.spawn.with_shell("setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape")
