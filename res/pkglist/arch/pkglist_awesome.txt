@@ -3,3 +3,6 @@ dunst
 picom
 ttf-jetbrains-mono
 autorandr
+acpid
+network-manager-applet
+blueman

@@ -50,7 +50,7 @@ beautiful.wallpaper = "/home/bozo/.dotfiles/res/wallpaper.jpg"
 -- gears.wallpaper = "$HOME/.dotfiles/res/wallpaper.jpg"
 beautiful.border_width = 1
 beautiful.bg_focus = "#7E9CD8"
-beautiful.fg_normal = "#ccc"
+beautiful.fg_normal = "#ddd"
 beautiful.taglist_squares_sel = nil
 beautiful.taglist_squares_unsel = nil
 beautiful.taglist_bg_occupied = "#373B41"
@@ -124,7 +124,12 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("%H:%M ",10)
+
+mytextclock = wibox.widget.textclock("%H:%M ", 1)
+
+mytextclock:connect_signal("button::press", function(self, _, _, b)
+	self.format = self.format == "%H:%M " and "%a, %b %d, %H:%M:%S " or "%H:%M "
+end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -330,7 +335,7 @@ awful.screen.connect_for_each_screen(function(s)
 				warn_full_battery = false,
 			}),
 			tbox_separator,
-			mytextclock,
+			mytextclock
 		},
 	})
 end)
@@ -356,10 +361,10 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
 	awful.key({}, "XF86MonBrightnessUp", function()
-		brightness_widget:inc()
+		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changebrightness.sh -inc 5")
 	end, { description = "increase brightness", group = "custom" }),
 	awful.key({}, "XF86MonBrightnessDown", function()
-		brightness_widget:dec()
+		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changebrightness.sh -dec 5")
 	end, { description = "decrease brightness", group = "custom" }),
 
 	awful.key({}, "XF86AudioRaiseVolume", function()
@@ -370,6 +375,10 @@ globalkeys = gears.table.join(
 	end),
 	awful.key({}, "XF86AudioMute", function()
 		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changevolume.sh toggle")
+	end),
+
+	awful.key({}, "XF86AudioMicMute", function()
+		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/mutemic.sh toggle")
 	end),
 
 	awful.key({ modkey }, "j", function()
@@ -807,6 +816,7 @@ awful.spawn.with_shell(
 		.. "ksuperkey -e 'Super_L=Super_L|Shift_L|r';"
 		.. "dunst & disown;"
 		.. "betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim,blur;"
+		.. "bluetoothctl power on;"
 		.. "nm-applet & disown;"
 		.. "blueman-applet & disown;"
 		.. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
