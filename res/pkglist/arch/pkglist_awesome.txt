@@ -6,3 +6,5 @@ autorandr
 acpid
 network-manager-applet
 blueman
+xdotool
+wmctrl

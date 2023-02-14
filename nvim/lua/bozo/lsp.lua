@@ -1,13 +1,13 @@
 local servers = {
-	pyright = {},
-	clangd = {},
-	bashls = {},
+	pyright = {}, -- python
+	clangd = {}, -- c, c++
+	bashls = {}, -- bash
 	hls = {
 		haskell = {
 			formattingProvider = "fourmolu",
 		},
-	},
-	sumneko_lua = {
+	}, -- haskell
+	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
@@ -15,13 +15,27 @@ local servers = {
 				globals = { "vim", "client", "awesome" },
 			},
 		},
-	},
+	}, -- lua
+	html = {}, -- html
+	cssls = {}, -- css
+	eslint = {}, -- javascript
+	jdtls = {}, -- java
+	jsonls = {}, -- json
+	lemminx = {}, -- xml
+	texlab = {}, -- latex
+	marksman = {}, -- markdown
+	yamlls = {}, -- yaml
 }
 
 local null_ls_sources = {
-	"stylua",
-	"black",
-	"fourmolu",
+	"stylua", -- lua
+	"black", -- python
+	"fourmolu", -- haskell
+	"clang_format", -- c, c++, c#, java, javascript, json
+	"prettierd", -- javascript, typescript, flow, jsx, json, css, scss, less, html, vue, angular, graphql, markdown, yaml
+	"shfmt", -- bash
+	"latexindent", -- latex
+	"xmlformat", -- xml
 }
 
 local lsp_keymaps = function(bufnr)
@@ -143,7 +157,7 @@ null_ls.setup()
 
 local config = {
 	virtual_text = {
-		source = false,
+		source = true,
 	},
 	update_in_insert = true,
 	underline = true,
@@ -152,7 +166,7 @@ local config = {
 		focusable = false,
 		style = "minimal",
 		border = "single",
-		source = false,
+		source = true,
 	},
 }
 

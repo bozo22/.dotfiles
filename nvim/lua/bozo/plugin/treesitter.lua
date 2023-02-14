@@ -4,7 +4,7 @@ configs.setup {
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
-    enable = true,
+    enable = false,
   },
   highlight = {
     enable = true, -- false will disable the whole extension

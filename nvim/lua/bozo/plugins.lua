@@ -55,17 +55,19 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim") -- terminal
 	use("lewis6991/impatient.nvim") -- faster startup
 	use("lukas-reineke/indent-blankline.nvim") -- indentline
-	use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
+	-- use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 	use("ahmedkhalf/project.nvim") -- project
 	use("nvim-orgmode/orgmode") -- emacs org-mode
-  use('j-hui/fidget.nvim') -- Useful status updates for LSP
-  use('tpope/vim-sleuth')
+	use("j-hui/fidget.nvim") -- Useful status updates for LSP
+	use("tpope/vim-sleuth")
 
 	-- color schemes
 	use("projekt0n/github-nvim-theme")
 	use("noahfrederick/vim-hemisu")
 	use("NTBBloodbath/doom-one.nvim")
 	use("rebelot/kanagawa.nvim")
+	use("RRethy/nvim-base16")
 
 	-- completion
 	use("hrsh7th/nvim-cmp")

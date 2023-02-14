@@ -11,8 +11,8 @@ amixer set Capture "$@" > /dev/null
 mute="$(amixer get Capture | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
 if [[ "$mute" == "off" ]]; then
     # Show the sound muted notification
-    dunstify -a "muteMic" -u low -h string:x-dunst-stack-tag:$msgTag "Microphone muted" 
+    dunstify -a "muteMic" -u low -h string:x-dunst-stack-tag:$msgTag "Microphone muted" -t 1000
 else
     # Show the volume notification
-    dunstify -a "muteMic" -u low -h string:x-dunst-stack-tag:$msgTag "Microphopne enabled"
+    dunstify -a "muteMic" -u low -h string:x-dunst-stack-tag:$msgTag "Microphone enabled" -t 1000
 fi

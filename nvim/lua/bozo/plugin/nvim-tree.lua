@@ -10,9 +10,6 @@ nvim_tree.setup({
   hijack_cursor = true,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
-  open_on_setup = false,
-  open_on_setup_file = false,
   open_on_tab = false,
   ignore_buf_on_tab_change = {},
   sort_by = "name",
@@ -38,10 +35,13 @@ nvim_tree.setup({
       custom_only = false,
       list = {
         { key = "<BS>", action = "toggle_dotfiles" },
-        { key = "a", action = "rename" },
+        { key = "A", action = "rename" },
+        { key = "a", action = "rename_basename" },
         { key = "d", action = "cut" },
+        { key = "y", action = "copy" },
         { key = "v", action = "toggle_mark" },
         { key = "t", action = "create" },
+        { key = "h", action = "dir_up" },
       },
     },
     float = {
@@ -66,7 +66,7 @@ nvim_tree.setup({
     root_folder_modifier = ":~",
     indent_width = 2,
     indent_markers = {
-      enable = false,
+      enable = true,
       inline_arrows = true,
       icons = {
         corner = "└",
@@ -124,7 +124,6 @@ nvim_tree.setup({
     update_root = true,
     ignore_list = {},
   },
-  ignore_ft_on_setup = {"alpha","startify","dashboard"},
   system_open = {
     cmd = "",
     args = {},

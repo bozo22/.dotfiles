@@ -277,7 +277,7 @@ awful.screen.connect_for_each_screen(function(s)
 		buttons = tasklist_buttons,
 	})
 
-	tbox_separator = wibox.widget.textbox(" // ")
+	tbox_separator = wibox.widget.textbox(" / ")
 	-- local mybattery = lain.widget.bat({
 	-- 	settings = function()
 	-- 		widget:set_markup(lain.util.markup(beautiful.fg_normal, " " .. bat_now.perc .. "% "))
@@ -326,7 +326,7 @@ awful.screen.connect_for_each_screen(function(s)
 				listen = true,
 				timeout = 10,
 				widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
-				widget_font = "SF Mono 10",
+				widget_font = beautiful.font,
 				tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
 				alert_threshold = 5,
 				alert_timeout = 0,

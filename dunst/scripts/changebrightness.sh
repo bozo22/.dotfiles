@@ -11,4 +11,4 @@ xbacklight "$@" > /dev/null
 brightness="$(xbacklight | tr "." "\n" | head -1)"
     # Show the brighness notification
     dunstify -a "changeBrightness" -u low -h string:x-dunst-stack-tag:$msgTag \
-    -h int:value:"$brightness" "Brightness: ${brightness}%"
+    -h int:value:"$brightness" "Brightness: ${brightness}%" -t 1000

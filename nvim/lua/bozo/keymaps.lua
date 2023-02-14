@@ -44,18 +44,39 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", { desc = 'Resize window' })
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", { desc = 'Resize window' })
 
 -- Navigate buffers
-keymap('n', '<S-h>', '<Cmd>BufferPrevious<CR>', { desc = 'Navigate to previous buffer' })
-keymap('n', '<S-l>', '<Cmd>BufferNext<CR>', { desc = 'Navigate to next bufffer' })
+-- keymap('n', '<S-h>', '<Cmd>BufferPrevious<CR>', { desc = 'Navigate to previous buffer' })
+-- keymap('n', '<S-l>', '<Cmd>BufferNext<CR>', { desc = 'Navigate to next bufffer' })
+keymap('n', '<S-h>', '<Cmd>BufferLineCyclePrev<CR>', { desc = 'Navigate to previous buffer' })
+keymap('n', '<S-l>', '<Cmd>BufferLineCycleNext<CR>', { desc = 'Navigate to next bufffer' })
 
 -- Reorder buffers
-keymap('n', '<A-h>', '<Cmd>BufferMovePrevious<CR>', { desc = 'Reorder buffer to the left' })
-keymap('n', '<A-l>', '<Cmd>BufferMoveNext<CR>', { desc = 'Reorder buffer to the right' })
+keymap('n', '<A-h>', '<Cmd>BufferLineMovePrev<CR>', { desc = 'Reorder buffer to the left' })
+keymap('n', '<A-l>', '<Cmd>BufferLineMoveNext<CR>', { desc = 'Reorder buffer to the right' })
 
 -- Close buffer
-keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', { desc = '[C]lose buffer' })
+keymap('n', '<leader>c', '<Cmd>bd<CR>', { desc = '[C]lose buffer' })
 
 -- Vertical split
 keymap('n', '<leader>v', ':vsp<CR>', { desc = '[V]ertical split' })
+
+-- Send current line to terminal
+keymap('n', '<leader>j', ':ToggleTermSendCurrentLine<CR>', { desc = 'Send current line to terminal' })
+
+-- Center cursor
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
+keymap("n", "J", "mzJ`z")
+
+-- Delete without yank
+keymap("n", "<leader>d", '"_d')
+keymap("n", "<leader>D", '"_D')
+keymap("n", "<leader>c", '"_c')
+keymap("n", "<leader>C", '"_C')
+keymap("n", "<leader>s", '"_s')
+keymap("n", "<leader>S", '"_S')
+keymap("n", "<leader>x", '"_x')
 
 -- Visual --
 -- Stay in indent mode
@@ -71,9 +92,38 @@ keymap("v", "<A-j>", ":m .+1<CR>==", { desc = 'Move text down' })
 keymap("v", "<A-k>", ":m .-2<CR>==", { desc = 'Move text up' })
 keymap("v", "p", '"_dP', { desc = '[P]aste' })
 
+-- Send visual selection to terminal
+keymap('v', '<leader>j', ':ToggleTermSendVisualSelection<CR>', { desc = 'Send selection to terminal' })
+
+-- Delete without yank
+keymap("v", "<leader>d", '"_d')
+keymap("v", "<leader>D", '"_D')
+keymap("v", "<leader>c", '"_c')
+keymap("v", "<leader>C", '"_C')
+keymap("v", "<leader>s", '"_s')
+keymap("v", "<leader>S", '"_S')
+keymap("v", "<leader>x", '"_x')
+
 -- Visual Block --
 -- Move text up and down
 -- keymap("x", "J", ":move '>+1<CR>gv-gv", { desc = '' })
 -- keymap("x", "K", ":move '<-2<CR>gv-gv", { desc = '' })
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = 'Move text down' })
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = 'Move text up' })
+
+-- Delete without yank
+keymap("x", "<leader>d", '"_d')
+keymap("x", "<leader>D", '"_D')
+keymap("x", "<leader>c", '"_c')
+keymap("x", "<leader>C", '"_C')
+keymap("x", "<leader>s", '"_s')
+keymap("x", "<leader>S", '"_S')
+keymap("x", "<leader>x", '"_x')
+
+-- Terminal --
+-- Resize with arrows
+keymap("t", "<C-Up>", "<Cmd>:resize +2<CR>", { desc = 'Resize window' })
+keymap("t", "<C-Down>", "<Cmd>:resize -2<CR>", { desc = 'Resize window' })
+keymap("t", "<C-Left>", "<Cmd>:vertical resize -2<CR>", { desc = 'Resize window' })
+keymap("t", "<C-Right>", "<Cmd>:vertical resize +2<CR>", { desc = 'Resize window' })
+

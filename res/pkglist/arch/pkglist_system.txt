@@ -32,6 +32,7 @@ zoxide
 zsh
 fzf
 neovim
+ripgrep
 python-pip
 ranger
 highlight

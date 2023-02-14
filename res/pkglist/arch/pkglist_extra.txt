@@ -15,3 +15,4 @@ qbittorrent
 texlive-most
 gthumb
 arandr
+pandoc-cli
