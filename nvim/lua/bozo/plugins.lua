@@ -42,25 +42,28 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
-	use("goolord/alpha-nvim")
+	use("goolord/alpha-nvim") -- startup screen
 	use("kyazdani42/nvim-web-devicons") -- icons
 	use("nvim-tree/nvim-tree.lua") -- file explorer
 	use("numToStr/Comment.nvim") -- comment
 	use("sitiom/nvim-numbertoggle") -- hybrid line numbers
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }) -- status line
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { { "nvim-lua/plenary.nvim" } } }) -- telescope
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { { "nvim-lua/plenary.nvim" } } }) -- telescope
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- syntax highlighting
-	use("windwp/nvim-autopairs") -- Autopairs
+	use("windwp/nvim-autopairs") -- autopairs
 	use("lewis6991/gitsigns.nvim") -- git
 	use("akinsho/toggleterm.nvim") -- terminal
 	use("lewis6991/impatient.nvim") -- faster startup
 	use("lukas-reineke/indent-blankline.nvim") -- indentline
 	-- use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- bufferline
 	use("ahmedkhalf/project.nvim") -- project
 	use("nvim-orgmode/orgmode") -- emacs org-mode
-	use("j-hui/fidget.nvim") -- Useful status updates for LSP
-	use("tpope/vim-sleuth")
+	use('andreadev-it/orgmode-multi-key')
+	-- use("j-hui/fidget.nvim") -- Useful status updates for LSP
+	use("tpope/vim-sleuth") -- auto shiftwidth
+	use("RRethy/vim-illuminate") -- document highlighting
+
 
 	-- color schemes
 	use("projekt0n/github-nvim-theme")

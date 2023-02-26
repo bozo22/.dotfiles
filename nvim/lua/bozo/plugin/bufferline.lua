@@ -2,14 +2,14 @@ local bufferline = require("bufferline")
 bufferline.setup({
 	options = {
 		diagnostics = "nvim_lsp",
-		-- offsets = {
-		-- 	{
-		-- 		filetype = "NvimTree",
-		-- 		text = "File Explorer",
-		-- 		text_align = "left",
-		-- 		separator = true,
-		-- 	},
-		-- },
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "File Explorer",
+				text_align = "left",
+				separator = true,
+			},
+		},
 		sort_by = "insert_at_end",
 		show_buffer_close_icons = false,
 	},

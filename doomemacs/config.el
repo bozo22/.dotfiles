@@ -10,7 +10,7 @@
 (setq display-line-numbers-type 'relative)
 
 ;; org
-(setq org-directory "~/org/")
+(setq org-directory "~/Dropbox/org/")
 (after! org
   (setq org-image-actual-width 170)
   (setq org-attach-auto-tag nil)

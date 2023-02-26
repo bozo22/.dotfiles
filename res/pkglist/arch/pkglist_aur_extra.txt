@@ -1,6 +1,7 @@
 anaconda
 google-chrome
 megasync-bin
+dropbox
 spotify
 teams
 visual-studio-code-bin

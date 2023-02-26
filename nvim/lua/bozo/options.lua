@@ -37,7 +37,7 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
-vim.cmd[[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
+-- vim.cmd[[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
 
 for k, v in pairs(options) do
   vim.opt[k] = v
@@ -48,3 +48,5 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+

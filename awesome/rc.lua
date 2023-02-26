@@ -40,8 +40,6 @@ do
 end
 -- }}}
 
-awful.spawn.with_shell("autorandr -c")
-
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -810,6 +808,7 @@ awful.spawn.with_shell(
 	'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;'
 		.. 'xrdb -merge <<< "awesome.started:true";'
 		-- list each of your autostart commands, followed by ; inside single quotes, followed by ..
+		.. "autorandr -c;"
 		.. "libinput-gestures-setup start;"
 		.. 'xinput --set-prop 9 "libinput Accel Speed" -0.4;'
 		.. "picom & disown;"
@@ -819,6 +818,7 @@ awful.spawn.with_shell(
 		.. "bluetoothctl power on;"
 		.. "nm-applet & disown;"
 		.. "blueman-applet & disown;"
+		.. "dropbox & disown;"
 		.. 'if ! pgrep -x "megasync" > /dev/null; then; megasync & disown; fi;'
 )
 

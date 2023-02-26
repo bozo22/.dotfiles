@@ -16,26 +16,25 @@ keymap("n", "<C-l>", "<C-w>l", { desc = 'Move to the window on the right'})
 -- Close window
 keymap("n", "<leader>q", ":q<cr>", { desc = 'Close window' })
 
+-- Save
+keymap("n", "<leader>w", ":w<cr>", { desc = 'Save buffer' })
+
+-- Tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", { desc = 'Toggle filetree' })
 -- keymap("n", "<esc><esc>", ":silent! nohls<cr>", { desc = '' })
 
 -- Telescope
-keymap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-keymap('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-keymap('n', '<leader>/', function()
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer]' })
-
+keymap('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = '[S]earch [R]ecently opened Files' })
+keymap('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers' })
 keymap("n", "<leader>sp", "<cmd>lua require'telescope'.extensions.projects.projects(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", { desc = '[S]earch [P]rojects' })
 keymap('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 keymap('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-keymap('n', '<leader>sd', require('telescope.builtin').live_grep, { desc = '[S]earch [D]irectory' })
+keymap('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch [G]rep' })
+keymap('n', '<leader><space>', require('telescope.builtin').live_grep, { desc = 'Search Grep' })
 keymap('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
-keymap('n', '<leader>sD', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+keymap('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+keymap('n', '<leader>/', require('telescope.builtin').current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer]' })
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", { desc = 'Resize window' })
@@ -54,7 +53,7 @@ keymap('n', '<A-h>', '<Cmd>BufferLineMovePrev<CR>', { desc = 'Reorder buffer to 
 keymap('n', '<A-l>', '<Cmd>BufferLineMoveNext<CR>', { desc = 'Reorder buffer to the right' })
 
 -- Close buffer
-keymap('n', '<leader>c', '<Cmd>bd<CR>', { desc = '[C]lose buffer' })
+keymap('n', '<leader>k', '<Cmd>bd<CR>', { desc = '[K]ill buffer' })
 
 -- Vertical split
 keymap('n', '<leader>v', ':vsp<CR>', { desc = '[V]ertical split' })
@@ -69,14 +68,18 @@ keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 keymap("n", "J", "mzJ`z")
 
--- Delete without yank
-keymap("n", "<leader>d", '"_d')
-keymap("n", "<leader>D", '"_D')
-keymap("n", "<leader>c", '"_c')
-keymap("n", "<leader>C", '"_C')
-keymap("n", "<leader>s", '"_s')
-keymap("n", "<leader>S", '"_S')
-keymap("n", "<leader>x", '"_x')
+-- Use leader for an alternative register
+keymap("n", "<leader>d", '"ld')
+keymap("n", "<leader>D", '"lD')
+keymap("n", "<leader>c", '"lc')
+keymap("n", "<leader>C", '"lC')
+keymap("n", "<leader>s", '"ls')
+keymap("n", "<leader>S", '"lS')
+keymap("n", "<leader>x", '"lx')
+keymap("n", "<leader>p", '"lp')
+keymap("n", "<leader>p", '"lP')
+keymap("n", "<leader>y", '"ly')
+keymap("n", "<leader>Y", '"lY')
 
 -- Visual --
 -- Stay in indent mode
@@ -95,14 +98,18 @@ keymap("v", "p", '"_dP', { desc = '[P]aste' })
 -- Send visual selection to terminal
 keymap('v', '<leader>j', ':ToggleTermSendVisualSelection<CR>', { desc = 'Send selection to terminal' })
 
--- Delete without yank
-keymap("v", "<leader>d", '"_d')
-keymap("v", "<leader>D", '"_D')
-keymap("v", "<leader>c", '"_c')
-keymap("v", "<leader>C", '"_C')
-keymap("v", "<leader>s", '"_s')
-keymap("v", "<leader>S", '"_S')
-keymap("v", "<leader>x", '"_x')
+-- Use leader for an alternative register
+keymap("v", "<leader>d", '"ld')
+keymap("v", "<leader>D", '"lD')
+keymap("v", "<leader>c", '"lc')
+keymap("v", "<leader>C", '"lC')
+keymap("v", "<leader>s", '"ls')
+keymap("v", "<leader>S", '"lS')
+keymap("v", "<leader>x", '"lx')
+keymap("v", "<leader>p", '"lp')
+keymap("v", "<leader>p", '"lP')
+keymap("v", "<leader>y", '"ly')
+keymap("v", "<leader>Y", '"lY')
 
 -- Visual Block --
 -- Move text up and down
@@ -111,14 +118,18 @@ keymap("v", "<leader>x", '"_x')
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = 'Move text down' })
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = 'Move text up' })
 
--- Delete without yank
-keymap("x", "<leader>d", '"_d')
-keymap("x", "<leader>D", '"_D')
-keymap("x", "<leader>c", '"_c')
-keymap("x", "<leader>C", '"_C')
-keymap("x", "<leader>s", '"_s')
-keymap("x", "<leader>S", '"_S')
-keymap("x", "<leader>x", '"_x')
+-- Use leader for an alternative register
+keymap("x", "<leader>d", '"ld')
+keymap("x", "<leader>D", '"lD')
+keymap("x", "<leader>c", '"lc')
+keymap("x", "<leader>C", '"lC')
+keymap("x", "<leader>s", '"ls')
+keymap("x", "<leader>S", '"lS')
+keymap("x", "<leader>x", '"lx')
+keymap("x", "<leader>p", '"lp')
+keymap("x", "<leader>p", '"lP')
+keymap("x", "<leader>y", '"ly')
+keymap("x", "<leader>Y", '"lY')
 
 -- Terminal --
 -- Resize with arrows
