@@ -58,12 +58,19 @@ return packer.startup(function(use)
 	-- use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- bufferline
 	use("ahmedkhalf/project.nvim") -- project
-	use("nvim-orgmode/orgmode") -- emacs org-mode
-	use('andreadev-it/orgmode-multi-key')
 	-- use("j-hui/fidget.nvim") -- Useful status updates for LSP
 	use("tpope/vim-sleuth") -- auto shiftwidth
 	use("RRethy/vim-illuminate") -- document highlighting
-
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+		end,
+		ft = { "markdown" },
+	})
+	use('mfussenegger/nvim-jdtls') -- Java LSP extensions
+	use('github/copilot.vim') -- Github Copilot
+	use {'stevearc/dressing.nvim'}
 
 	-- color schemes
 	use("projekt0n/github-nvim-theme")
@@ -90,6 +97,12 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jayp0521/mason-null-ls.nvim")
+
+	-- orgmode
+	use("nvim-orgmode/orgmode") -- emacs org-mode
+	use("andreadev-it/orgmode-multi-key")
+	use("joaomsa/telescope-orgmode.nvim")
+	use("akinsho/org-bullets.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

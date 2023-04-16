@@ -44,6 +44,9 @@ local kind_icons = {
 }
 
 cmp.setup({
+	view = {
+		-- entries = "native"
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -101,6 +104,7 @@ cmp.setup({
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				luasnip = "[Snippet]",
+				orgmode = "[Org]",
 				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
@@ -110,6 +114,7 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "orgmode" },
 		{ name = "buffer" },
 		{ name = "path" },
 	},
@@ -122,6 +127,5 @@ cmp.setup({
 	},
 	experimental = {
 		ghost_text = false,
-		native_menu = false,
 	},
 })

@@ -333,7 +333,7 @@ awful.screen.connect_for_each_screen(function(s)
 				warn_full_battery = false,
 			}),
 			tbox_separator,
-			mytextclock
+			mytextclock,
 		},
 	})
 end)
@@ -357,7 +357,6 @@ globalkeys = gears.table.join(
 	-- awful.key({ modkey }, "]", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "l", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
-
 	awful.key({}, "XF86MonBrightnessUp", function()
 		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/changebrightness.sh -inc 5")
 	end, { description = "increase brightness", group = "custom" }),
@@ -377,6 +376,11 @@ globalkeys = gears.table.join(
 
 	awful.key({}, "XF86AudioMicMute", function()
 		awful.spawn.with_shell("~/.dotfiles/dunst/scripts/mutemic.sh toggle")
+	end),
+
+	awful.key({ modkey, "Control" }, "x", function(c)
+		c.maximized_horizontal = false
+		c.maximized_vertical = false
 	end),
 
 	awful.key({ modkey }, "j", function()
@@ -436,6 +440,16 @@ globalkeys = gears.table.join(
 	end, { description = "open firefox", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+	awful.key({ "Control" }, "space", function()
+		awful.spawn.with_shell("setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape")
+		awful.spawn.with_shell("xset r rate 350 50")
+	end, { description = "reset keyboard settings", group = "awesome" }),
+	awful.key(
+		{ modkey, "Shift" },
+		"s", function()
+		awful.spawn.with_shell("flameshot gui") end,
+		{ description = "screenshot", group = "client" }
+	),
 
 	-- awful.key({ modkey }, "l", function()
 	-- 	awful.tag.incmwfact(0.05)
@@ -497,12 +511,12 @@ clientkeys = gears.table.join(
 	awful.key({ modkey }, "BackSpace", function(c)
 		c:kill()
 	end, { description = "close", group = "client" }),
-	awful.key(
-		{ modkey, "Shift" },
-		"s",
-		awful.client.floating.toggle,
-		{ description = "toggle floating", group = "client" }
-	),
+	-- awful.key(
+	-- 	{ modkey, "Shift" },
+	-- 	"s",
+	-- 	awful.client.floating.toggle,
+	-- 	{ description = "toggle floating", group = "client" }
+	-- ),
 	awful.key({ modkey, "Control" }, "Return", function(c)
 		c:swap(awful.client.getmaster())
 	end, { description = "move to master", group = "client" }),

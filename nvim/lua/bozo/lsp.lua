@@ -30,6 +30,7 @@ local servers = {
 local null_ls_sources = {
 	"stylua", -- lua
 	"black", -- python
+	"mypy", -- python static type checking
 	"fourmolu", -- haskell
 	"clang_format", -- c, c++, c#, java, javascript, json
 	"prettierd", -- javascript, typescript, flow, jsx, json, css, scss, less, html, vue, angular, graphql, markdown, yaml
@@ -58,7 +59,7 @@ local lsp_keymaps = function(bufnr)
 	vim.keymap.set("n", "<leader>ld", vim.diagnostic.setloclist, { desc = "Diagnostics: [L]ist [D]iagnostics" })
 	nmap("gD", vim.lsp.buf.declaration, "[G]o to [D]eclaration")
 	-- nmap("gd", vim.lsp.buf.definition, "[G]o to [D]efinition")
-	nmap("gd", require("telescope.builtin").lsp_definitions, "Telescope: [G]o to [D]efinition" )
+	nmap("gd", require("telescope.builtin").lsp_definitions, "Telescope: [G]o to [D]efinition")
 	nmap("K", vim.lsp.buf.hover, "Hover")
 	nmap("gi", vim.lsp.buf.implementation, "[G]o to [I]mplementation")
 	-- nmap("n", "<C-k>", vim.lsp.buf.signature_help, '')
@@ -70,7 +71,7 @@ local lsp_keymaps = function(bufnr)
 	nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
 	nmap("<leader>ls", require("telescope.builtin").lsp_document_symbols, "[L]ist document [S]ymbols")
 	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[N]ame")
-	nmap("<space>la", vim.lsp.buf.code_action, "Code [A]ction")
+	nmap("<M-CR>", vim.lsp.buf.code_action, "Code [A]ction")
 	nmap("gr", vim.lsp.buf.references, "[G]o to [R]eferences")
 	nmap("<leader>lf", function()
 		vim.lsp.buf.format({ async = true })
@@ -148,18 +149,26 @@ require("mason-null-ls").setup({
 
 local null_ls = require("null-ls")
 
-require("mason-null-ls").setup_handlers({
-	function(source_name, methods)
-		require("mason-null-ls.automatic_setup")(source_name, methods)
-	end,
+require("mason-null-ls").setup({
+	handlers = {
+		function(source_name, methods)
+			require("mason-null-ls.automatic_setup")(source_name, methods)
+		end,
+	}
 })
 
 null_ls.setup()
+
+vim.fn.sign_define("DiagnosticSignError", { text = "✗", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "!", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "i", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 local config = {
 	virtual_text = { source = "if_many", },
 	update_in_insert = true,
 	underline = true,
+	signs = true,
 	severity_sort = true,
 	float = {
 		focusable = false,

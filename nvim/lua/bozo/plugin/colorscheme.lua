@@ -19,7 +19,7 @@
 vim.cmd("colorscheme base16-one-light")
 vim.cmd("highlight Visual guibg=#d3d3d4 gui=NONE")
 vim.cmd("hi link OrgAgendaScheduledPast Bold")
-vim.cmd("hi link OrgAgendaScheduled Normal")
+vim.cmd("hi link OrgAgendaScheduled None")
 vim.cmd("hi link OrgAgendaDeadline Float")
 
 -- Default options:
