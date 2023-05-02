@@ -15,8 +15,8 @@ local servers = {
 				globals = { "vim", "client", "awesome" },
 			},
 		},
-	}, -- lua
-	html = {}, -- html
+	},          -- lua
+	html = {},  -- html
 	cssls = {}, -- css
 	eslint = {}, -- javascript
 	jdtls = {}, -- java
@@ -28,13 +28,13 @@ local servers = {
 }
 
 local null_ls_sources = {
-	"stylua", -- lua
-	"black", -- python
-	"mypy", -- python static type checking
-	"fourmolu", -- haskell
+	"stylua",    -- lua
+	"black",     -- python
+	"mypy",      -- python static type checking
+	"fourmolu",  -- haskell
 	"clang_format", -- c, c++, c#, java, javascript, json
 	"prettierd", -- javascript, typescript, flow, jsx, json, css, scss, less, html, vue, angular, graphql, markdown, yaml
-	"shfmt", -- bash
+	"shfmt",     -- bash
 	"latexindent", -- latex
 	"xmlformat", -- xml
 }
@@ -108,7 +108,6 @@ local capabilities = cmp_nvim_lsp.default_capabilities(cap)
 -- }
 
 require("mason-lspconfig").setup_handlers({
-
 	function(server_name)
 		-- local require_ok, conf_opts = pcall(require, "bozo.lsp.settings." .. server_name)
 		-- if require_ok then
@@ -121,6 +120,15 @@ require("mason-lspconfig").setup_handlers({
 			on_attach = on_attach,
 			settings = servers[server_name],
 		})
+	end,
+
+	["jdtls"] = function()
+		-- require("jdtls").start_or_attach({
+		-- 	--capabilities = capabilities,
+		-- 	--on_attach = on_attach,
+		-- 	cmd = { "/home/bozo/.local/share/nvim/mason/packages/jdtls/bin/jdtls" },
+		-- 	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
+		-- })
 	end,
 })
 
@@ -154,7 +162,7 @@ require("mason-null-ls").setup({
 		function(source_name, methods)
 			require("mason-null-ls.automatic_setup")(source_name, methods)
 		end,
-	}
+	},
 })
 
 null_ls.setup()
@@ -165,7 +173,7 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = "i", texthl = "DiagnosticSignI
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 local config = {
-	virtual_text = { source = "if_many", },
+	virtual_text = { source = "if_many" },
 	update_in_insert = true,
 	underline = true,
 	signs = true,

@@ -440,7 +440,7 @@ globalkeys = gears.table.join(
 	end, { description = "open firefox", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-	awful.key({ "Control" }, "space", function()
+	awful.key({ modkey, "Control" }, "space", function()
 		awful.spawn.with_shell("setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape")
 		awful.spawn.with_shell("xset r rate 350 50")
 	end, { description = "reset keyboard settings", group = "awesome" }),

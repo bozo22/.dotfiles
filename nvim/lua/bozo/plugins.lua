@@ -69,7 +69,7 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 	use('mfussenegger/nvim-jdtls') -- Java LSP extensions
-	use('github/copilot.vim') -- Github Copilot
+	--use('github/copilot.vim') -- Github Copilot
 	use {'stevearc/dressing.nvim'}
 
 	-- color schemes
