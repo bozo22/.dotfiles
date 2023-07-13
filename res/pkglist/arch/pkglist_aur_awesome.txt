@@ -1,5 +1,0 @@
-dmenu2
-ksuperkey
-ly
-betterlockscreen
-libinput-gestures

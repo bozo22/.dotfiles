@@ -1,4 +1,0 @@
-nitch
-update-grub
-yay
-ghcup-hs-bin

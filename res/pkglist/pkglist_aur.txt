@@ -1,7 +1,6 @@
-anaconda
-google-chrome
+nitch
+yay
+nerd-fonts-sf-mono
 megasync-bin
-dropbox
 spotify
-teams
 visual-studio-code-bin
