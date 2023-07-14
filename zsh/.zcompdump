@@ -1,4 +1,4 @@
-#files: 806	version: 5.9
+#files: 811	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -133,6 +133,7 @@ _comps=(
 'cabal' '_cabal'
 'cal' '_cal'
 'calendar' '_calendar'
+'cargo' '_cargo'
 'cat' '_cat'
 'catchsegv' '_precommand'
 'cc' '_gcc'
@@ -420,6 +421,7 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
+'ghcup' '_ghcup'
 'ghead' '_head'
 'ghostscript' '_ghostscript'
 'ghostview' '_pspdf'
@@ -745,6 +747,7 @@ _comps=(
 'mencal' '_mencal'
 'mere' '_mere'
 'merge' '_rcs'
+'meson' '_meson'
 'metaflac' '_flac'
 'mformat' '_mtools'
 'mgv' '_pspdf'
@@ -837,6 +840,7 @@ _comps=(
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
+'ninja' '_ninja'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1144,6 +1148,7 @@ _comps=(
 'smbclient' '_samba'
 'smbcontrol' '_samba'
 'smbstatus' '_samba'
+'snap' '_snap'
 'soa' '_hosts'
 'socket' '_socket'
 'sort' '_sort'
@@ -1654,12 +1659,13 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bootctl _busctl _bwrap _code _coredumpctl \
-            _curl _flatpak _highlight _hostnamectl _journalctl \
-            _kernel-install _libinput _localectl _loginctl _machinectl \
-            _mkinitcpio _mpv _networkctl _oomctl _pacman \
-            _pulseaudio _resolvectl _rg _sd_hosts_or_user_at_host _sd_machines \
-            _sd_outputmodes _sd_unit_files _systemctl _systemd _systemd-analyze \
+autoload -Uz _bootctl _busctl _bwrap _cargo _code \
+            _coredumpctl _curl _flatpak _ghcup _highlight \
+            _hostnamectl _journalctl _kernel-install _libinput _localectl \
+            _loginctl _machinectl _meson _mkinitcpio _mpv \
+            _networkctl _ninja _oomctl _pacman _pulseaudio \
+            _resolvectl _rg _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
+            _sd_unit_files _snap _systemctl _systemd _systemd-analyze \
             _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
             _systemd-tmpfiles _timedatectl _udevadm _yay _zathura \
             _zoxide _cdr _all_labels _all_matches _alternative \
