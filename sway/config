@@ -58,8 +58,6 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 
 ### Autostart
 exec megasync
-exec nm-applet
-exec blueman-applet
 exec dunst
 
 ### Key bindings
@@ -90,6 +88,18 @@ exec dunst
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+#
+# Sound/brightness
+#
+
+bindsym XF86MonBrightnessUp exec ~/.dotfiles/dunst/scripts/changebrightness.sh s +10%
+bindsym XF86MonBrightnessDown exec ~/.dotfiles/dunst/scripts/changebrightness.sh s 10%-
+bindsym XF86AudioRaiseVolume exec ~/.dotfiles/dunst/scripts/changevolume.sh 5%+
+bindsym XF86AudioLowerVolume exec ~/.dotfiles/dunst/scripts/changevolume.sh 5%-
+bindsym XF86AudioMute exec ~/.dotfiles/dunst/scripts/changevolume.sh toggle
+bindsym XF86AudioMicMute exec ~/.dotfiles/dunst/scripts/mutemic.sh toggle
+
 #
 # Moving around:
 #
@@ -226,12 +236,17 @@ include /etc/sway/config.d/*
 #
 # Input
 #
-input * {
+input type:keyboard {
     xkb_layout "us,hu"
     xkb_variant  ",qwerty"
     xkb_options "grp:win_space_toggle, caps:swapescape"
     repeat_delay 300
     repeat_rate 50
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
 }
 
 for_window [app_id="floating"] floating enable

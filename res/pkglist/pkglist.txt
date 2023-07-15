@@ -31,3 +31,5 @@ noto-fonts-extra
 noto-fonts-cjk
 noto-fonts-emoji
 man
+xclip
+pavucontrol

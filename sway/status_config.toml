@@ -16,11 +16,15 @@ interval = 15
 
 [[block]]
 block = "battery"
-format = " $icon $percentage "
+format = " bat: $percentage "
+charging_format = " bat: $percentage charging "
+full_format = " bat: full "
+empty_format = " bat: empty "
 missing_format = ""
 
 [[block]]
 block = "sound"
+format = " vol: {$volume.eng(w:2) |muted }"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
@@ -29,10 +33,11 @@ cmd = "pavucontrol"
 block = "backlight"
 missing_format = ""
 device = "intel_backlight"
+format = " light: $brightness "
 
 [[block]]
 block = "net"
-format = " $icon {$signal_strength $ssid $frequency|Wired} "
+format = " net: {$ssid|Wired} "
 [[block.click]]
 button = "left"
 cmd = "kitty --class=floating nmtui-connect"

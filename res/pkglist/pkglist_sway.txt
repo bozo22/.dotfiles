@@ -2,3 +2,6 @@ sway
 swaybg
 dunst
 i3status-rust
+brightnessctl
+light
+alsa-utils
