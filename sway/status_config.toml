@@ -1,0 +1,44 @@
+icons_format = "{icon}"
+
+[icons]
+icons = "awesome4"
+[icons.overrides]
+bat = ["|E|", "|_|", "|=|", "|F|"]
+bat_charging = "|^| "
+
+[[block]]
+block = "keyboard_layout"
+driver = "sway"
+interval = 15
+[block.mappings]
+"English (US)" = "us"
+"Hungarian (QWERTY)" = "hu"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+missing_format = ""
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "backlight"
+missing_format = ""
+device = "intel_backlight"
+
+[[block]]
+block = "net"
+format = " $icon {$signal_strength $ssid $frequency|Wired} "
+[[block.click]]
+button = "left"
+cmd = "kitty --class=floating nmtui-connect"
+
+[[block]]
+block = "time"
+interval = 1
+format = " $timestamp.datetime(f:'%a %d/%m %H:%M:%S') "
+

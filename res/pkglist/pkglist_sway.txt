@@ -1,5 +1,4 @@
 sway
 swaybg
-network-manager-applet
 dunst
 i3status-rust
