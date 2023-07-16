@@ -32,4 +32,3 @@ noto-fonts-cjk
 noto-fonts-emoji
 man
 xclip
-pavucontrol
