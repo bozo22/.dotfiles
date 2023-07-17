@@ -7,3 +7,5 @@ i3status-rust
 brightnessctl
 light
 alsa-utils
+dmenu
+pavucontrol
