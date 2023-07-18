@@ -6,4 +6,5 @@ brightnessctl
 light
 alsa-utils
 dmenu
+j4-dmenu-desktop
 pavucontrol

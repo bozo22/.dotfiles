@@ -7,6 +7,7 @@ export MANWIDTH=999
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
+path+=/opt/docker-desktop/bin
 path+=~/.local/share/gem/ruby/3.0.0/bin
 path+=~/.emacs.d/bin
 path+=~/.ghcup/bin
