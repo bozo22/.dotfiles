@@ -1,11 +1,3 @@
-icons_format = "{icon}"
-
-[icons]
-icons = "awesome4"
-[icons.overrides]
-bat = ["|E|", "|_|", "|=|", "|F|"]
-bat_charging = "|^| "
-
 [[block]]
 block = "keyboard_layout"
 driver = "sway"
@@ -29,11 +21,11 @@ format = " vol: {$volume.eng(w:2) |muted }"
 button = "left"
 cmd = "pavucontrol"
 
-[[block]]
-block = "backlight"
-missing_format = ""
-device = "intel_backlight"
-format = " light: $brightness "
+# [[block]]
+# block = "backlight"
+# missing_format = ""
+# device = "intel_backlight"
+# format = " light: $brightness "
 
 [[block]]
 block = "net"
@@ -45,5 +37,6 @@ cmd = "kitty --class=floating nmtui-connect"
 [[block]]
 block = "time"
 interval = 1
-format = " $timestamp.datetime(f:'%a %d/%m %H:%M:%S') "
-
+[block.format]
+full = " $timestamp.datetime(f:'%a %m/%d %H:%M:%S') "
+short = " $timestamp.datetime(f:'%H:%M') "
