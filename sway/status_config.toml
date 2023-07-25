@@ -14,12 +14,12 @@ full_format = " bat: full "
 empty_format = " bat: empty "
 missing_format = ""
 
-[[block]]
-block = "sound"
-format = " vol: {$volume.eng(w:2) |muted }"
-[[block.click]]
-button = "left"
-cmd = "pavucontrol"
+# [[block]]
+# block = "sound"
+# format = " vol: {$volume.eng(w:2) |muted }"
+# [[block.click]]
+# button = "left"
+# cmd = "pavucontrol"
 
 # [[block]]
 # block = "backlight"

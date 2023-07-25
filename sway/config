@@ -59,6 +59,7 @@ exec swayidle -w \
 ### Autostart
 exec megasync
 exec dunst
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 ### Key bindings
 #
