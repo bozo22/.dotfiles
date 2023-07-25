@@ -250,4 +250,5 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+for_window [class="floating"] floating enable
 for_window [app_id="floating"] floating enable
