@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu j4-dmenu-desktop --dmenu="dmenu -i" --term="kitty" | xargs swaymsg exec --
+set $menu dmenu_run | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -89,6 +89,10 @@ exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ss
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+     bindgesture swipe:3:right workspace prev
+     bindgesture swipe:3:left workspace next
+     bindgesture swipe:3:up exec $menu
 
 #
 # Sound/brightness
