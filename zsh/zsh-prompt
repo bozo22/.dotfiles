@@ -7,7 +7,7 @@ autoload -U colors && colors
 # enable only git 
 zstyle ':vcs_info:*' enable git 
 
-# setup a hook that runs before every ptompt. 
+# setup a hook that runs before every prompt. 
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
@@ -28,10 +28,10 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 }
 
 zstyle ':vcs_info:*' check-for-changes true
-#zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
-#zstyle ':vcs_info:git:*' formats "%{$fg[black]%}[ %{$fg[magenta]%} %b%{$fg[black]%} ] "
-zstyle ':vcs_info:git:*' formats "%f//%{$fg[magenta]%} %b%{$fg[black]%} "
+# zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
+# zstyle ':vcs_info:git:*' formats "%{$fg[black]%}[ %{$fg[magenta]%} %b%{$fg[black]%} ] "
+zstyle ':vcs_info:git:*' formats "%f(%{$fg[magenta]%}%b%{$fg[black]%}) "
 
-PROMPT='%B%F{blue}%1~ '
+PROMPT='%B%F{cyan}%1~%f '
 PROMPT+="\$vcs_info_msg_0_"
 PROMPT+="%fλ%b "
