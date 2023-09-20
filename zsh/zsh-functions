@@ -29,3 +29,13 @@ function zsh_add_completion() {
 	completion_file="$(basename "${completion_file_path}")"
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
+
+fancy-ctrl-z () {
+  if [[ $(jobs) ]]; then
+    fg
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z

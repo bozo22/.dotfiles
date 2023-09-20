@@ -55,7 +55,6 @@ bindkey -s '^f' 'zi^M'
 bindkey -s '^s' 'ncdu^M'
 #bindkey -s '^n' 'nvim $(fzf)^M'
 bindkey -s '^v' 'nvim^M'
-bindkey -s '^z' 'zi^M'
 bindkey '^[[P' delete-char
 bindkey "^p" up-line-or-beginning-search # Up
 bindkey "^n" down-line-or-beginning-search # Down
@@ -65,6 +64,7 @@ bindkey -r "^u"
 bindkey -r "^d"
 bindkey "^ " autosuggest-accept
 bindkey -s "^k" 'sudo $(fc -ln -1)^M'
+bindkey '^z' fancy-ctrl-z
 
 # FZF 
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
