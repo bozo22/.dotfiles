@@ -10,3 +10,6 @@ alsa-utils
 dmenu
 j4-dmenu-desktop
 pavucontrol
+grim
+slurp
+wl-clipboard
