@@ -20,6 +20,9 @@ indent_blankline.setup({
 	indent = {
 		char = "▏",
 	},
+	scope = {
+		show_start = false
+	},
 	context_patterns = {
 		"class",
 		"return",
