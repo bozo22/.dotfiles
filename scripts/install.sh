@@ -24,15 +24,12 @@ install () {
 
 if ! yay --version &> /dev/null
 then
-    echo "Installing yay..."
     sudo pacman -S --needed git base-devel reflector && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     cd ..
     sudo rm -r yay
 fi
 
 # Install packages
-
-echo "Installing packages..."
 
 yay -Syyuu
 sudo reflector -c Hungary -a 6 --sort rate --save /etc/pacman.d/mirrorlist
