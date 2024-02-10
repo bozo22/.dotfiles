@@ -20,29 +20,23 @@ install () {
     fi
 }
 
-# yay
+# Install yay
 
 if ! yay --version &> /dev/null
 then
+    echo "Installing yay..."
     sudo pacman -S --needed git base-devel reflector && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     cd ..
     sudo rm -r yay
 fi
 
+# Install packages
+
+echo "Installing packages..."
+
 yay -Syyuu
 sudo reflector -c Hungary -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
-# basics
-
-install pacman $HOME/.dotfiles/res/pkglist/pkglist.txt
-install yay $HOME/.dotfiles/res/pkglist/pkglist_aur.txt
-
-# sway
-
-install pacman $HOME/.dotfiles/res/pkglist/pkglist_sway.txt
-sudo pacman -R xdg-desktop-portal-gnome
-
-chmod +x cleanup.sh
-chmod +x link.sh
-$HOME/.dotfiles/scripts/cleanup.sh
-$HOME/.dotfiles/scripts/link.sh
+install yay $HOME/.dotfiles/res/pkglist/pkglist_utils.txt
+install yay $HOME/.dotfiles/res/pkglist/pkglist_wm.txt
+install yay $HOME/.dotfiles/res/pkglist/pkglist_extra.txt

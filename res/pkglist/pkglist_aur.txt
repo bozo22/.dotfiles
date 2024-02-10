@@ -1,6 +1,0 @@
-nitch
-yay
-nerd-fonts-sf-mono
-megasync-bin
-spotify
-visual-studio-code-bin

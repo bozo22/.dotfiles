@@ -1,7 +1,4 @@
-sway
-swaybg
-swaylock
-swayidle
+i3-wm
 dunst
 i3status-rust
 brightnessctl
@@ -10,6 +7,10 @@ alsa-utils
 dmenu
 j4-dmenu-desktop
 pavucontrol
-grim
-slurp
-wl-clipboard
+betterlockscreen
+blueman
+flameshot
+kbdd
+ly
+xfce4-settings
+picom

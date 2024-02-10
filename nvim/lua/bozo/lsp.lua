@@ -2,11 +2,11 @@ local servers = {
 	pyright = {}, -- python
 	clangd = {}, -- c, c++
 	bashls = {}, -- bash
-	hls = {
-		haskell = {
-			formattingProvider = "fourmolu",
-		},
-	}, -- haskell
+	-- hls = {
+	-- 	haskell = {
+	-- 		formattingProvider = "fourmolu",
+	-- 	},
+	-- }, -- haskell
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },

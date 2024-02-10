@@ -1,0 +1,16 @@
+megasync-bin
+spotify
+visual-studio-code-bin
+firefox
+neovim
+zathura
+zathura-pdf-mupdf
+nautilus
+qbittorrent
+vlc
+gthumb
+noto-fonts
+noto-fonts-extra
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-jetbrains-mono-nerd
