@@ -40,7 +40,7 @@ bindsym $mod+d exec xfce4-display-settings
 bindsym $mod+shift+s exec flameshot gui
 bindsym --release Super_L exec $menu
 
-bindsym $mod+shift+x exec betterlockscreen -l dim
+bindsym $mod+shift+x exec betterlockscreen -l dim --off 300
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 
