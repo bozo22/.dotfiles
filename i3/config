@@ -35,8 +35,12 @@ exec feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
 
 bindsym $mod+Return exec $term
 bindsym $mod+w exec $browser
+bindsym $mod+comma exec xfce4-settings-manager
+bindsym $mod+d exec xfce4-display-settings
+bindsym $mod+shift+s exec flameshot gui
 bindsym --release Super_L exec $menu
 
+bindsym $mod+shift+x exec betterlockscreen -l dim
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 
