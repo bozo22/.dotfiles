@@ -31,8 +31,8 @@ fi
 
 # Install packages
 
-yay -Syyuu
-sudo reflector -c Hungary -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector -c $1 -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+yay -Syyuq
 
 install yay $HOME/.dotfiles/res/pkglist/pkglist_utils.txt
 install yay $HOME/.dotfiles/res/pkglist/pkglist_wm.txt

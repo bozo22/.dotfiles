@@ -10,23 +10,33 @@ set $term kitty
 set $menu j4-dmenu-desktop --term=kitty
 set $font pango:JetBrainsMonoNL Nerd Font Mono Regular 10
 set $browser firefox
+set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
+set $lockscreen betterlockscreen -l dim --off 300 --show-layout
 
-### General
+### General setup
 
 font $font
-floating_modifier $mod
+floating_modifier Mod1
 
-### Autostart
+# Xfce settings daemon
 exec --no-startup-id xfsettingsd -D
+# Display switch
+exec_always --no-startup-id autorandr -c
+# Disable screen timeout
+exec --no-startup-id xset -dpms
+# Compositor
 exec --no-startup-id picom
+# Keyboard setup
 exec --no-startup-id setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape
 exec --no-startup-id xset r rate 350 50
 exec --no-startup-id kbdd
-exec --no-startup-id megasync
+# Notifications
 exec --no-startup-id dunst
+# Wallpaper
+exec --no-startup-id $wp
 
-### Wallpaper
-exec feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
+### Autostart
+exec --no-startup-id megasync
 
 ### Key bindings
 #
@@ -40,20 +50,21 @@ bindsym $mod+d exec xfce4-display-settings
 bindsym $mod+shift+s exec flameshot gui
 bindsym --release Super_L exec $menu
 
-bindsym $mod+shift+x exec betterlockscreen -l dim --off 300
+bindsym $mod+shift+x exec $lockscreen
 bindsym $mod+q kill
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec i3 reload && $wp
+bindsym $mod+Shift+r restart
 
 #
 # Sound/brightness
 #
 
-bindsym XF86MonBrightnessUp exec ~/.dotfiles/dunst/scripts/changebrightness.sh s +10%
-bindsym XF86MonBrightnessDown exec ~/.dotfiles/dunst/scripts/changebrightness.sh s 10%-
-bindsym XF86AudioRaiseVolume exec ~/.dotfiles/dunst/scripts/changevolume.sh 5%+
-bindsym XF86AudioLowerVolume exec ~/.dotfiles/dunst/scripts/changevolume.sh 5%-
-bindsym XF86AudioMute exec ~/.dotfiles/dunst/scripts/changevolume.sh toggle
-bindsym XF86AudioMicMute exec ~/.dotfiles/dunst/scripts/mutemic.sh toggle
+bindsym XF86MonBrightnessUp exec ~/.dotfiles/scripts/control/changebrightness.sh s +10%
+bindsym XF86MonBrightnessDown exec ~/.dotfiles/scripts/control/changebrightness.sh s 10%-
+bindsym XF86AudioRaiseVolume exec ~/.dotfiles/scripts/control/changevolume.sh 5%+
+bindsym XF86AudioLowerVolume exec ~/.dotfiles/scripts/control/changevolume.sh 5%-
+bindsym XF86AudioMute exec ~/.dotfiles/scripts/control/changevolume.sh toggle
+bindsym XF86AudioMicMute exec ~/.dotfiles/scripts/control/mutemic.sh toggle
 
 #
 # Moving around:

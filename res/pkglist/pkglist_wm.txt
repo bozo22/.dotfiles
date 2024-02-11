@@ -14,3 +14,5 @@ kbdd
 ly
 xfce4-settings
 picom
+autorandr
+feh

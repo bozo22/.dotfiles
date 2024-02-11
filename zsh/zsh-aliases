@@ -13,3 +13,4 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 alias bat='bat --theme=GitHub'
 alias fp="fzf --preview 'bat --style=numbers --color=always --theme=GitHub --line-range :500 {}'"
 alias r='sudo $(fc -ln -1)'
+alias sync='$HOME/.dotfiles/sync.sh'

@@ -1,5 +1,4 @@
 #!/bin/bash
-# changeVolume
 
 # Arbitrary but unique message tag
 msgTag="microphone"
