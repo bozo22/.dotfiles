@@ -14,3 +14,4 @@ noto-fonts-extra
 noto-fonts-cjk
 noto-fonts-emoji
 ttf-jetbrains-mono-nerd
+ttf-ubuntu-font-family

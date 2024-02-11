@@ -43,12 +43,6 @@ zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
 
-# Plugins
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "hlissner/zsh-autopair"
-zsh_add_plugin "ajeetdsouza/zoxide"
-
 # Key-bindings
 bindkey -s '^o' 'ranger^M'
 bindkey -s '^f' 'zi^M'
@@ -112,4 +106,8 @@ function ranger_func {
     fi
 }
 
-#source $HOME/.dotfiles/scripts/private.sh
+# Plugins
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "hlissner/zsh-autopair"
+zsh_add_plugin "ajeetdsouza/zoxide"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
