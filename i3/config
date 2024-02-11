@@ -24,6 +24,8 @@ exec --no-startup-id xfsettingsd -D
 exec_always --no-startup-id autorandr -c
 # Disable screen timeout
 exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
+exec --no-startup-id xset s noblank
 # Compositor
 exec --no-startup-id picom
 # Keyboard setup
@@ -167,7 +169,7 @@ bindsym $mod+r mode "resize"
 
 ### Program specific config
 for_window [class="Spotify"] move to workspace number 7; workspace number 7
-for_window [class="floating"] floating enable
+for_window [class="nmtui"] floating enable, resize set 25 ppt 50 ppt, move position center
 for_window [class="scratchpad"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
 for_window [class="Pavucontrol"] floating enable, resize set 25 ppt 50 ppt, move position center
 

@@ -33,7 +33,7 @@ block = "net"
 format = " net: {$ssid|Wired} "
 [[block.click]]
 button = "left"
-cmd = "kitty --class=floating nmtui-connect"
+cmd = "kitty --class=nmtui nmtui-connect"
 
 [[block]]
 block = "time"
