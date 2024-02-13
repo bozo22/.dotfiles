@@ -1,6 +1,12 @@
+[icons]
+icons = "awesome6"
+[icons.overrides]
+bat = ["", "", "", "", ""]
+
 [[block]]
 block = "keyboard_layout"
 driver = "kbddbus"
+format = " $layout "
 interval = 15
 [block.mappings]
 "English (US)" = "us"
@@ -8,19 +14,32 @@ interval = 15
 
 [[block]]
 block = "battery"
-format = " bat: $percentage "
-charging_format = " bat: $percentage charging "
-full_format = " bat: full "
-not_charging_format = " bat: full "
-empty_format = " bat: empty "
+interval = 1
+format = " $icon  $percentage "
+charging_format = "   $percentage "
+full_format = "   "
+not_charging_format = "   $percentage "
+empty_format = "   "
 missing_format = ""
 
-# [[block]]
-# block = "sound"
-# format = " vol: {$volume.eng(w:2) |muted }"
-# [[block.click]]
-# button = "left"
-# cmd = "pavucontrol"
+[[block]]
+block = "sound"
+format = "{ $icon  $volume.eng(w:2) |}"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "bluetooth"
+mac = "AC:12:2F:6E:29:C7"
+disconnected_format = ""
+format = " $icon  {$percentage|} "
+
+[[block]]
+block = "bluetooth"
+mac = "08:EB:ED:20:91:8F"
+disconnected_format = ""
+format = " $icon  {$percentage |}"
 
 # [[block]]
 # block = "backlight"
@@ -30,7 +49,8 @@ missing_format = ""
 
 [[block]]
 block = "net"
-format = " net: {$ssid|Wired} "
+format = " {|󰈀} "
+inactive_format = " 󰖪 "
 [[block.click]]
 button = "left"
 cmd = "kitty --class=nmtui nmtui-connect"

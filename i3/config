@@ -8,8 +8,9 @@ set $right l
 ### Preferences
 set $term kitty
 set $menu j4-dmenu-desktop --term=kitty
-set $font pango:Ubuntu Mono 13
+set $font pango:UbuntuMono Nerd Font 13
 set $browser firefox
+set $files nautilus
 set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
 set $lockscreen betterlockscreen -l dim --off 300 --show-layout
 
@@ -48,6 +49,7 @@ exec kitty --class=scratchpad
 
 bindsym $mod+Return exec $term
 bindsym $mod+w exec $browser
+bindsym $mod+f exec $files
 bindsym $mod+comma exec xfce4-settings-manager
 bindsym $mod+d exec xfce4-display-settings
 bindsym $mod+shift+s exec flameshot gui
@@ -57,8 +59,6 @@ bindsym $mod+shift+x exec $lockscreen
 bindsym $mod+q kill
 bindsym $mod+Shift+c exec i3 reload && $wp
 bindsym $mod+Shift+r restart
-bindsym --release button2 kill
-bindsym button3 floating toggle
 
 #
 # Sound/brightness
@@ -133,8 +133,7 @@ bindsym $mod+v splitv
 
 bindsym $mod+m layout tabbed
 bindsym $mod+t layout toggle split
-bindsym $mod+f fullscreen
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 #
 # Scratchpad:
@@ -168,10 +167,9 @@ bindsym Escape mode "default"
 bindsym $mod+r mode "resize"
 
 ### Program specific config
-for_window [class="Spotify"] move to workspace number 7; workspace number 7
-for_window [class="nmtui"] floating enable, resize set 25 ppt 50 ppt, move position center
-for_window [class="scratchpad"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
-for_window [class="Pavucontrol"] floating enable, resize set 25 ppt 50 ppt, move position center
+for_window [class="^Spotify$"] move to workspace number 7; workspace number 7
+for_window [class="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
+for_window [class="^Pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
 
 #
 # Status Bar:
@@ -181,6 +179,7 @@ bar {
     workspace_min_width 25
 
     font $font
+    separator_symbol "​"
     status_command i3status-rs $HOME/.dotfiles/i3/status_config.toml
 
     # colors {
