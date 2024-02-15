@@ -1,8 +1,9 @@
 #!/bin/sh
 
-alias ls="ls --color=auto"
+alias ls='exa'
 alias rm='rm -Ir'
 alias cp='cp -i'
+alias cd='z'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias hss='hugo server --noHTTPCache'

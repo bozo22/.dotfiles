@@ -7,7 +7,7 @@ set $right l
 
 ### Preferences
 set $term kitty
-set $menu j4-dmenu-desktop --term=kitty
+set $menu dmenu_run -q -i -dim 0.5 -h 22 -fn "Ubuntu Mono-13" 
 set $font pango:UbuntuMono Nerd Font 13
 set $browser firefox
 set $files nautilus
@@ -37,6 +37,8 @@ exec --no-startup-id kbdd
 exec --no-startup-id dunst
 # Wallpaper
 exec --no-startup-id $wp
+# Lockscreen
+exec --no-startup-id betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
 
 ### Autostart
 exec --no-startup-id megasync
@@ -57,7 +59,7 @@ bindsym --release Super_L exec $menu
 
 bindsym $mod+shift+x exec $lockscreen
 bindsym $mod+q kill
-bindsym $mod+Shift+c exec i3 reload && $wp
+bindsym $mod+Shift+c exec i3 reload && $wp && betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
 bindsym $mod+Shift+r restart
 
 #
@@ -139,7 +141,7 @@ bindsym $mod+Shift+f floating toggle
 # Scratchpad:
 #
 bindsym $mod+Shift+backslash move scratchpad
-bindsym $mod+backslash scratchpad show
+bindsym $mod+backslash exec "if ! [[ $(i3-msg -t get_tree | grep '\\"class\\":\\"scratchpad\\"') ]]; then kitty --class=scratchpad & disown && sleep 0.2; fi && i3 scratchpad show"
 
 #
 # Resizing containers:
