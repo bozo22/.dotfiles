@@ -15,3 +15,4 @@ alias bat='bat --theme=GitHub'
 alias fp="fzf --preview 'bat --style=numbers --color=always --theme=GitHub --line-range :500 {}'"
 alias r='sudo $(fc -ln -1)'
 alias sync='$HOME/.dotfiles/sync.sh'
+alias kom='sudo sshfs -o allow_other p_adhnd@komondor.hpc.kifu.hu:/home/p_adhnd /mnt/komondor -o IdentityFile=/home/bozo/.ssh/id_ed25519'

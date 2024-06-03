@@ -11,6 +11,8 @@ fzf
 ripgrep
 python-pip
 highlight
+ranger
+polkit
 npm
 gparted
 grub-customizer
@@ -18,3 +20,4 @@ ncdu
 reflector
 man
 xclip
+libxcrypt-compat

@@ -32,6 +32,8 @@ zstyle ':vcs_info:*' check-for-changes true
 # zstyle ':vcs_info:git:*' formats "%{$fg[black]%}[ %{$fg[magenta]%} %b%{$fg[black]%} ] "
 zstyle ':vcs_info:git:*' formats "%f(%{$fg[magenta]%}%b%{$fg[black]%}) "
 
-PROMPT='%B%F{cyan}%1~%f '
-PROMPT+="\$vcs_info_msg_0_"
-PROMPT+="%fλ%b "
+# PROMPT='%B%F{cyan}%1~%f '
+# PROMPT+="\$vcs_info_msg_0_"
+# PROMPT+="%fλ%b "
+PROMPT="%B%F{blue}%n@%m%f:%B%F{red}%3~%f$%b "
+RPROMPT="\$vcs_info_msg_0_"

@@ -7,7 +7,7 @@ set $right l
 
 ### Preferences
 set $term kitty
-set $menu dmenu_run -q -i -dim 0.5 -h 22 -fn "Ubuntu Mono-13" 
+set $menu j4-dmenu-desktop --dmenu='dmenu -q -i -dim 0.5 -h 22 -fn "Ubuntu Mono-13"'
 set $font pango:UbuntuMono Nerd Font 13
 set $browser firefox
 set $files nautilus
@@ -22,7 +22,7 @@ floating_modifier Mod1
 # Xfce settings daemon
 exec --no-startup-id xfsettingsd -D
 # Display switch
-exec_always --no-startup-id autorandr -c
+exec --no-startup-id autorandr -c && kitty --class=scratchpad
 # Disable screen timeout
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
@@ -30,7 +30,6 @@ exec --no-startup-id xset s noblank
 # Compositor
 exec --no-startup-id picom
 # Keyboard setup
-exec --no-startup-id setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape
 exec --no-startup-id xset r rate 350 50
 exec --no-startup-id kbdd
 # Notifications
@@ -42,7 +41,6 @@ exec --no-startup-id betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx 
 
 ### Autostart
 exec --no-startup-id megasync
-exec kitty --class=scratchpad
 
 ### Key bindings
 #
@@ -53,14 +51,13 @@ bindsym $mod+Return exec $term
 bindsym $mod+w exec $browser
 bindsym $mod+f exec $files
 bindsym $mod+comma exec xfce4-settings-manager
-bindsym $mod+d exec xfce4-display-settings
 bindsym $mod+shift+s exec flameshot gui
 bindsym --release Super_L exec $menu
 
 bindsym $mod+shift+x exec $lockscreen
 bindsym $mod+q kill
 bindsym $mod+Shift+c exec i3 reload && $wp && betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec i3 restart && $wp && betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
 
 #
 # Sound/brightness
@@ -169,8 +166,8 @@ bindsym Escape mode "default"
 bindsym $mod+r mode "resize"
 
 ### Program specific config
-for_window [class="^Spotify$"] move to workspace number 7; workspace number 7
-for_window [class="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
+for_window [instance="^Spotify$"] move to workspace number 7; workspace number 7
+for_window [instance="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
 for_window [class="^Pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
 
 #

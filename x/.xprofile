@@ -1,1 +1,12 @@
+#!/bin/bash
+
 export MOZ_USE_XINPUT2=1
+{ echo "XIDeviceEnabled XISlaveKeyboard"; inputplug -d -c /bin/echo; } |
+while read event
+do
+        case $event in
+        XIDeviceEnabled*XISlaveKeyboard*)
+                setxkbmap -layout us,hu -variant ,qwerty -option grp:win_space_toggle caps:swapescape
+                ;;
+        esac
+done &

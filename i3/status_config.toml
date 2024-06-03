@@ -3,6 +3,9 @@ icons = "awesome6"
 [icons.overrides]
 bat = ["", "", "", "", ""]
 
+[theme]
+theme = "native"
+
 [[block]]
 block = "keyboard_layout"
 driver = "kbddbus"

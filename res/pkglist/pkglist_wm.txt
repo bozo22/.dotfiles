@@ -5,6 +5,8 @@ brightnessctl
 light
 alsa-utils
 dmenu2
+j4-dmenu-desktop
+inputplug
 pavucontrol
 betterlockscreen
 blueman

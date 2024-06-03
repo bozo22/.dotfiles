@@ -1,4 +1,4 @@
 #!/bin/bash
 
 feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
-betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
+betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim & disown
