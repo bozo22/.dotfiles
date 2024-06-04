@@ -21,3 +21,4 @@ reflector
 man
 xclip
 libxcrypt-compat
+os-prober

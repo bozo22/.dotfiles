@@ -7,7 +7,7 @@ set $right l
 
 ### Preferences
 set $term kitty
-set $menu j4-dmenu-desktop --dmenu='dmenu -q -i -dim 0.5 -h 22 -fn "Ubuntu Mono-13"'
+set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-13"'
 set $font pango:UbuntuMono Nerd Font 13
 set $browser firefox
 set $files nautilus

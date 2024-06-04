@@ -1,4 +1,5 @@
 megasync-bin
+icu74
 spotify
 visual-studio-code-bin
 firefox
