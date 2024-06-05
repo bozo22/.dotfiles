@@ -17,3 +17,4 @@ xfce4-settings
 picom
 autorandr
 feh
+networkmanager

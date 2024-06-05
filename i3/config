@@ -41,6 +41,7 @@ exec --no-startup-id betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx 
 
 ### Autostart
 exec --no-startup-id megasync
+exec --no-startup-id blueman-applet
 
 ### Key bindings
 #

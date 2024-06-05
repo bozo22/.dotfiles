@@ -16,18 +16,6 @@ interval = 15
 "Hungarian (QWERTY)" = "hu"
 
 [[block]]
-block = "bluetooth"
-mac = "AC:12:2F:6E:29:C7"
-disconnected_format = ""
-format = " $icon  {$percentage|}"
-
-[[block]]
-block = "bluetooth"
-mac = "08:EB:ED:20:91:8F"
-disconnected_format = ""
-format = " $icon  {$percentage |}"
-
-[[block]]
 block = "battery"
 format = " $icon  $percentage "
 charging_format = "   $percentage "
