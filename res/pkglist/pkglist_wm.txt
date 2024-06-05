@@ -18,3 +18,4 @@ picom
 autorandr
 feh
 networkmanager
+papirus-icon-theme
