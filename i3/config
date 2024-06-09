@@ -8,7 +8,7 @@ set $right l
 ### Preferences
 set $term kitty
 set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-13"'
-set $font pango:UbuntuMono Nerd Font 13
+set $font pango:UbuntuMono Nerd Font 12
 set $browser firefox
 set $files nautilus
 set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg

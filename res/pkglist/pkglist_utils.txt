@@ -8,6 +8,7 @@ zoxide
 kitty
 zsh
 fzf
+exa
 ripgrep
 python-pip
 highlight
@@ -22,3 +23,5 @@ man
 xclip
 libxcrypt-compat
 os-prober
+pulseaudio
+pulseaudio-alsa
