@@ -7,12 +7,13 @@ set $right l
 
 ### Preferences
 set $term kitty
-set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-13"'
-set $font pango:UbuntuMono Nerd Font 12
+set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-11"'
+set $font pango:UbuntuMono Nerd Font 11
 set $browser firefox
 set $files nautilus
 set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
 set $lockscreen betterlockscreen -l dim --off 300 --show-layout
+set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh
 
 ### General setup
 
@@ -53,6 +54,7 @@ bindsym $mod+w exec $browser
 bindsym $mod+f exec $files
 bindsym $mod+comma exec xfce4-settings-manager
 bindsym $mod+shift+s exec flameshot gui
+bindsym $mod+p exec $powermenu
 bindsym --release Super_L exec $menu
 
 bindsym $mod+shift+x exec $lockscreen
