@@ -1,0 +1,4 @@
+*font: pango:UbuntuMono Nerd Font 12
+#ifdef SRVR_navi
+    *font: pango:UbuntuMono Nerd Font 11
+#endif

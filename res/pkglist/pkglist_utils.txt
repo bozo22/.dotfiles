@@ -25,3 +25,5 @@ libxcrypt-compat
 os-prober
 pulseaudio
 pulseaudio-alsa
+ntfs-3g
+keymapper

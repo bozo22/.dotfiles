@@ -1,11 +1,12 @@
 #!/bin/sh
 
-case "$(echo -e "Shutdown\nReboot\nLogout\nSuspend\nLock" | dmenu \
-    -i -fn "Ubuntu Mono-12")" \
+case "$(echo -e "Poweroff\nReboot\nWindows\nLock\nSuspend\nExit" | dmenu \
+    -i -fn "$1")" \
     in
-        Shutdown) exec systemctl poweroff;;
+        Poweroff) exec systemctl poweroff;;
         Reboot) exec systemctl reboot;;
-        Logout) exec i3 exit;;
-        Suspend) exec systemctl suspend-then-hibernate;;
+        Windows) sudo grub-reboot 1 && reboot;;
         Lock) exec betterlockscreen -l dim --off 300 --show-layout;;
+        Suspend) exec systemctl suspend-then-hibernate;;
+        Exit) exec i3 exit;;
 esac

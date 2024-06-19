@@ -7,13 +7,13 @@ set $right l
 
 ### Preferences
 set $term kitty
-set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-12"'
-set $font pango:UbuntuMono Nerd Font 12
 set $browser firefox
 set $files nautilus
 set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
 set $lockscreen betterlockscreen -l dim --off 300 --show-layout
-set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh
+set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-12"'
+set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh "Ubuntu Mono-12"
+set_from_resource $font i3wm.font pango:UbuntuMono Nerd Font 12
 
 ### General setup
 
@@ -39,6 +39,10 @@ exec --no-startup-id dunst
 exec --no-startup-id $wp
 # Lockscreen
 exec --no-startup-id betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
+# Key remap
+exec --no-startup-id keymapper --no-notify --no-tray
+# Authentication agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Autostart
 exec --no-startup-id megasync
