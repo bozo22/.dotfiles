@@ -39,7 +39,7 @@ cmd = "pavucontrol"
 
 [[block]]
 block = "net"
-format = "{  $ssid| 󰈀 }"
+format = "{   $ssid| 󰈀 }"
 inactive_format = " 󰖪 "
 [[block.click]]
 button = "left"
