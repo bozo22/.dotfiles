@@ -17,5 +17,5 @@ if [ $# -eq 1 ]; then
     sudo reflector -c $1 -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 fi
 yay -Syyuq --noconfirm
-sed -e "/^#/d" -e "s/ #.*//" $HOME/.dotfiles/res/pkglist.txt | yay -S --needed --noconfirm -
+sed -e "/^[[:space:]]*$/d" -e "/^#/d" -e "s/ #.*//" $HOME/.dotfiles/res/pkglist | yay -S --needed --noconfirm -
 

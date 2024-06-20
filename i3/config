@@ -11,9 +11,9 @@ set $browser firefox
 set $files nautilus
 set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
 set $lockscreen betterlockscreen -l dim --off 300 --show-layout
-set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "Ubuntu Mono-12"'
-set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh "Ubuntu Mono-12"
-set_from_resource $font i3wm.font pango:UbuntuMono Nerd Font 12
+set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "UbuntuMono Nerd Font Mono-12"'
+set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh "UbuntuMono Nerd Font Mono-12"
+set_from_resource $font i3wm.font pango:UbuntuMono Nerd Font Mono 12
 
 ### General setup
 
@@ -22,8 +22,8 @@ floating_modifier Mod1
 
 # Xfce settings daemon
 exec --no-startup-id xfsettingsd -D
-# Display switch
-exec --no-startup-id autorandr -c && kitty --class=scratchpad
+# Scratchpad terminal
+exec --no-startup-id kitty --class=scratchpad
 # Disable screen timeout
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
@@ -39,12 +39,12 @@ exec --no-startup-id dunst
 exec --no-startup-id $wp
 # Lockscreen
 exec --no-startup-id betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx dim
-# Key remap
+# Key remapper
 exec --no-startup-id keymapper --no-notify --no-tray
 # Authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Battery warning
-exec --no-startup-id i3-battery-popup -n -L 15 -i /usr/share/icons/Papirus-Dark/symbolic/status/battery-level-10-symbolic.svg -t 30s
+exec --no-startup-id i3-battery-popup -n -L 15 -i /usr/share/icons/Papirus-Dark/symbolic/status/battery-level-10-symbolic.svg -t 1m
 
 ### Autostart
 exec --no-startup-id megasync
@@ -175,9 +175,8 @@ bindsym Escape mode "default"
 bindsym $mod+r mode "resize"
 
 ### Program specific config
-for_window [instance="^Spotify$"] move to workspace number 7; workspace number 7
 for_window [instance="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
-for_window [class="^Pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
+for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
 
 #
 # Status Bar:
