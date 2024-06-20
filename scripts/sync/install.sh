@@ -38,7 +38,9 @@ fi
 
 # Install packages
 
-sudo reflector -c $1 -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+if [ $# -eq 1 ]; then
+    sudo reflector -c $1 -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+fi
 yay -Syyuq --noconfirm
 
 install yay $HOME/.dotfiles/res/pkglist/pkglist_utils.txt
