@@ -19,3 +19,4 @@ autorandr
 feh
 networkmanager
 papirus-icon-theme
+i3-battery-popup

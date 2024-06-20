@@ -43,6 +43,8 @@ exec --no-startup-id betterlockscreen -u $HOME/.dotfiles/res/wallpaper.jpg --fx 
 exec --no-startup-id keymapper --no-notify --no-tray
 # Authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Battery warning
+exec --no-startup-id i3-battery-popup -n -L 15 -i /usr/share/icons/Papirus-Dark/symbolic/status/battery-level-10-symbolic.svg -t 30s
 
 ### Autostart
 exec --no-startup-id megasync
