@@ -45,6 +45,8 @@ exec --no-startup-id keymapper --no-notify --no-tray
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Battery warning
 exec --no-startup-id i3-battery-popup -n -L 15 -i /usr/share/icons/Papirus-Dark/symbolic/status/battery-level-10-symbolic.svg -t 1m
+# Disk automount
+exec --no-startup-id udiskie -nsa -m nested
 
 ### Autostart
 exec --no-startup-id megasync

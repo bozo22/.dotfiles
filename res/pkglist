@@ -47,6 +47,7 @@ betterlockscreen
 flameshot
 ly
 xfce4-settings
+udiskie
 
 #
 # Utils
@@ -66,6 +67,7 @@ gparted
 ranger
 btop
 neofetch
+downgrade
 
 #
 # Programs
@@ -85,6 +87,8 @@ qbittorrent
 vlc
 gthumb
 discord
+libreoffice-still
+anki-bin
 
 #
 # Appearance
@@ -97,3 +101,4 @@ noto-fonts-extra
 noto-fonts-cjk
 noto-fonts-emoji
 ttf-ubuntu-mono-nerd
+ttf-literata
