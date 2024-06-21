@@ -13,7 +13,7 @@ country=""
 while getopts ":vc:" opt; do
   case ${opt} in
     v)
-	  verbose=1
+      verbose=1
       ;;
     c)
       country=${OPTARG}

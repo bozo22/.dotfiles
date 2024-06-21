@@ -63,6 +63,9 @@ npm
 ncdu
 grub-customizer
 gparted
+ranger
+btop
+neofetch
 
 #
 # Programs
@@ -81,7 +84,6 @@ nautilus
 qbittorrent
 vlc
 gthumb
-ranger
 discord
 
 #
@@ -89,6 +91,7 @@ discord
 #
 
 papirus-icon-theme
+yaru-gtk-theme
 noto-fonts
 noto-fonts-extra
 noto-fonts-cjk
