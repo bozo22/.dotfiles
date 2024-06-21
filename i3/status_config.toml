@@ -26,7 +26,7 @@ missing_format = ""
 
 [[block]]
 block = "sound"
-format = "{ $icon  $volume.eng(w:2) |  Muted}"
+format = "{ $icon  $volume.eng(w:2) |   Muted }"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
@@ -39,8 +39,8 @@ cmd = "pavucontrol"
 
 [[block]]
 block = "net"
-format = "{ 󰖩  $ssid| 󰈀  Wired}"
-inactive_format = " 󰖪 "
+format = "{ 󰖩  $ssid | 󰈀  Wired }"
+inactive_format = " 󰖪  "
 [[block.click]]
 button = "left"
 cmd = "kitty --class=nmtui nmtui-connect"
