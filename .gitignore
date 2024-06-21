@@ -1,3 +1,4 @@
 ghci_history
 zsh/plugins/*
 nvim/plugin/*
+.zcompdump
