@@ -53,7 +53,6 @@ exec --no-startup-id udiskie -nsa -m nested
 ### Autostart
 exec --no-startup-id megasync
 exec --no-startup-id blueman-applet
-exec --no-startup-id $password
 
 ### Key bindings
 #
@@ -183,7 +182,7 @@ bindsym $mod+r mode "resize"
 ### Program specific config
 for_window [instance="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
 for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
-for_window [class="^Bitwarden$"] floating enable, resize set 40 ppt 50 ppt, move position center
+for_window [class="^Bitwarden$"] floating enable, resize set 50 ppt 60 ppt, move position center
 
 #
 # Status Bar:
