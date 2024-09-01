@@ -14,8 +14,7 @@ set $lockscreen betterlockscreen -l dim --off 300 --show-layout
 set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "UbuntuMono Nerd Font Mono-12"'
 set $password bitwarden-desktop
 set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh "UbuntuMono Nerd Font Mono-12"
-set_from_resource $font i3wm.font pango:UbuntuMono Nerd Font Mono 12
-# set $font pango:Fedra Mono L Book 11
+set $font pango:UbuntuMono Nerd Font Mono 12
 
 ### General setup
 

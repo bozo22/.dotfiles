@@ -1,4 +1,6 @@
 *font: pango:UbuntuMono Nerd Font 12
+*startup: echo '' > /dev/null 2>&1
 #ifdef SRVR_navi
     *font: pango:UbuntuMono Nerd Font 11
+    *startup: docker-desktop &
 #endif
