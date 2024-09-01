@@ -2,4 +2,5 @@ ghci_history
 zsh/plugins/*
 nvim/plugin/*
 i3/config
+i3/config_local
 .zcompdump
