@@ -9,6 +9,10 @@ sudo rm -rf /etc/X11/xorg.conf.d
 sudo rm -rf /etc/pacman.conf
 rm -rf ~/.config/{picom,kitty,nvim,dunst,zathura,zsh,i3,keymapper.conf}
 
+# Generate i3 config
+
+cat ~/.dotfiles/i3/config_common > ~/.dotfiles/i3/config; [ -f ~/.dotfiles/i3/config_local ] && cat ~/.dotfiles/i3/config_local >> ~/.dotfiles/i3/config
+
 # Create symlinks
 
 ln -s ~/.dotfiles/zsh/.zshenv ~/.zshenv

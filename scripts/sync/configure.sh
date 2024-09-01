@@ -1,8 +1,8 @@
 #!/bin/bash
 
 crontab -r
-(crontab -l 2>/dev/null; echo "0,20,40 * * * * $HOME/.dotfiles/scripts/control/play_sound.sh") | crontab -
-(crontab -l 2>/dev/null; echo "@reboot $HOME/.dotfiles/scripts/control/play_sound.sh") | crontab -
+# (crontab -l 2>/dev/null; echo "0,20,40 * * * * $HOME/.dotfiles/scripts/control/play_sound.sh") | crontab -
+# (crontab -l 2>/dev/null; echo "@reboot $HOME/.dotfiles/scripts/control/play_sound.sh") | crontab -
 
 sudo systemctl enable -q cronie.service         # Cron
 sudo systemctl enable -q ly.service             # Display manager
