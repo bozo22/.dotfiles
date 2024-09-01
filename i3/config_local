@@ -1,1 +1,3 @@
 # Local config
+set $font pango:UbuntuMono Nerd Font Mono 11
+exec --no-startup-id docker-desktop
