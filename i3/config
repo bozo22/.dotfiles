@@ -1,3 +1,6 @@
+set_from_resource $conf i3wm.conf ~/.dotfiles/i3/izanami.conf
+include $conf
+
 ### Keybinds
 set $mod Mod4
 set $left h
@@ -11,10 +14,10 @@ set $browser firefox
 set $files nautilus
 set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
 set $lockscreen betterlockscreen -l dim --off 300 --show-layout
-set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "UbuntuMono Nerd Font Mono-12"'
+set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "UbuntuMono Nerd Font-12"'
 set $password bitwarden-desktop
-set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh "UbuntuMono Nerd Font Mono-12"
-set $font pango:UbuntuMono Nerd Font Mono 12
+set $powermenu $HOME/.dotfiles/scripts/control/dmenu_power.sh "UbuntuMono Nerd Font-12"
+set_from_resource $font i3wm.font pango:UbuntuMono Nerd Font 12
 
 ### General setup
 
@@ -200,4 +203,3 @@ bar {
     #     #inactive_workspace #323232 #323232 #5c5c5c
     # }
 }
-

@@ -1,6 +1,6 @@
+*conf: ~/.dotfiles/i3/izanami.conf
 *font: pango:UbuntuMono Nerd Font 12
-*startup: echo '' > /dev/null 2>&1
 #ifdef SRVR_navi
+    *conf: ~/.dotfiles/i3/navi.conf
     *font: pango:UbuntuMono Nerd Font 11
-    *startup: docker-desktop &
 #endif
