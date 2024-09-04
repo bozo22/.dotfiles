@@ -12,7 +12,7 @@ set $right l
 set $term kitty
 set $browser firefox
 set $files nautilus
-set $wp feh --bg-fill $HOME/.dotfiles/res/wallpaper.jpg
+set $wp feh --bg-fill --no-xinerama $HOME/.dotfiles/res/wallpaper.jpg
 set $lockscreen betterlockscreen -l dim --off 300 --show-layout
 set $menu j4-dmenu-desktop --dmenu='dmenu -i -fn "UbuntuMono Nerd Font-12"'
 set $password bitwarden-desktop
@@ -141,6 +141,13 @@ bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
 
 #
+# Monitors:
+#
+
+bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+h move workspace to output left
+
+#
 # Layout:
 #
 bindsym $mod+b splith
@@ -182,7 +189,7 @@ bindsym Escape mode "default"
 bindsym $mod+r mode "resize"
 
 ### Program specific config
-for_window [instance="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position 30 ppt 0, move scratchpad
+for_window [instance="^scratchpad$"] floating enable, resize set 40 ppt 40 ppt, move position center, move scratchpad
 for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
 for_window [class="^Bitwarden$"] floating enable, resize set 50 ppt 60 ppt, move position center
 
@@ -190,6 +197,7 @@ for_window [class="^Bitwarden$"] floating enable, resize set 50 ppt 60 ppt, move
 # Status Bar:
 #
 bar {
+    tray_output primary
     position bottom
     workspace_min_width 25
 
