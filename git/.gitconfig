@@ -7,3 +7,5 @@
 	directory = /windows/mega/ELTE/Szoftvertechnológia/Gyakorlat/bubblesort.wiki
 	directory = /windows/mega/ELTE/Szoftvertechnológia/Gyakorlat/bubblesort
 	directory = /mnt/komondor/alphasort
+[http]
+	postBuffer = 2147483648

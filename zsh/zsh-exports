@@ -13,4 +13,6 @@ path+=~/.emacs.d/bin
 path+=~/.ghcup/bin
 path+=~/.local/bin
 path+=~/.cabal/bin
+path+=/opt/miniconda3/bin
 export PATH
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
