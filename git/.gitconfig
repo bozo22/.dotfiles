@@ -9,3 +9,7 @@
 	directory = /mnt/komondor/alphasort
 [http]
 	postBuffer = 2147483648
+[alias]
+	credential-manager = credential-manager-core
+[credential "https://github.com"]
+	useHttpPath = true
