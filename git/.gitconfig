@@ -13,3 +13,5 @@
 	credential-manager = credential-manager-core
 [credential "https://github.com"]
 	useHttpPath = true
+[core]
+	sshCommand = ssh -i ~/.ssh/github

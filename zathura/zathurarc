@@ -4,3 +4,4 @@ map <Return> navigate next
 map <Left> navigate previous
 map <BackSpace> navigate previous
 set window-title-basename true
+set scroll-step 100
