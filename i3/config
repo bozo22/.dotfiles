@@ -187,7 +187,7 @@ bindsym $mod+r mode "resize"
 
 ### Program specific config
 for_window [instance="^scratchpad$"] floating enable, resize set 60 ppt 60 ppt, move position center, move scratchpad
-for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$"] floating enable, resize set 25 ppt 50 ppt, move position center
+for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$|^overskride$"] floating enable, resize set 60 ppt 60 ppt, move position center
 for_window [class="^Bitwarden$"] floating enable, resize set 50 ppt 60 ppt, move position center
 
 #
