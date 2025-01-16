@@ -42,35 +42,35 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
-	use("goolord/alpha-nvim") -- startup screen
-	use("kyazdani42/nvim-web-devicons") -- icons
-	use("nvim-tree/nvim-tree.lua") -- file explorer
+	-- use("goolord/alpha-nvim") -- startup screen
+	-- use("kyazdani42/nvim-web-devicons") -- icons
+	-- use("nvim-tree/nvim-tree.lua") -- file explorer
 	use("numToStr/Comment.nvim") -- comment
 	use("sitiom/nvim-numbertoggle") -- hybrid line numbers
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }) -- status line
 	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { { "nvim-lua/plenary.nvim" } } }) -- telescope
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- syntax highlighting
 	use("windwp/nvim-autopairs") -- autopairs
-	use("lewis6991/gitsigns.nvim") -- git
-	use("akinsho/toggleterm.nvim") -- terminal
+	-- use("lewis6991/gitsigns.nvim") -- git
+	-- use("akinsho/toggleterm.nvim") -- terminal
 	use("lewis6991/impatient.nvim") -- faster startup
-	use("lukas-reineke/indent-blankline.nvim") -- indentline
+	-- use("lukas-reineke/indent-blankline.nvim") -- indentline
 	-- use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- bufferline
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- bufferline
-	use("ahmedkhalf/project.nvim") -- project
+	-- use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- bufferline
+	-- use("ahmedkhalf/project.nvim") -- project
 	-- use("j-hui/fidget.nvim") -- Useful status updates for LSP
 	use("tpope/vim-sleuth") -- auto shiftwidth
 	use("RRethy/vim-illuminate") -- document highlighting
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-		end,
-		ft = { "markdown" },
-	})
-	use('mfussenegger/nvim-jdtls') -- Java LSP extensions
+	-- use({
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	run = "cd app && npm install",
+	-- 	setup = function()
+	-- 	end,
+	-- 	ft = { "markdown" },
+	-- })
+	-- use('mfussenegger/nvim-jdtls') -- Java LSP extensions
 	--use('github/copilot.vim') -- Github Copilot
-	use {'stevearc/dressing.nvim'}
+	-- use {'stevearc/dressing.nvim'}
 
 	-- color schemes
 	use("projekt0n/github-nvim-theme")
@@ -99,10 +99,10 @@ return packer.startup(function(use)
 	use("jayp0521/mason-null-ls.nvim")
 
 	-- orgmode
-	use("nvim-orgmode/orgmode") -- emacs org-mode
-	use("andreadev-it/orgmode-multi-key")
-	use("joaomsa/telescope-orgmode.nvim")
-	use("akinsho/org-bullets.nvim")
+	-- use("nvim-orgmode/orgmode") -- emacs org-mode
+	-- use("andreadev-it/orgmode-multi-key")
+	-- use("joaomsa/telescope-orgmode.nvim")
+	-- use("akinsho/org-bullets.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
