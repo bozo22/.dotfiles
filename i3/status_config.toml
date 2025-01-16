@@ -37,13 +37,13 @@ cmd = "pavucontrol"
 # device = "intel_backlight"
 # format = " light: $brightness "
 
-[[block]]
-block = "net"
-format = "{ 󰖩  $ssid | 󰈀  Wired }"
-inactive_format = " 󰖪  "
-[[block.click]]
-button = "left"
-cmd = "kitty --class=nmtui nmtui-connect"
+# [[block]]
+# block = "net"
+# format = "{ 󰖩  $ssid | 󰈀  Wired }"
+# inactive_format = " 󰖪  "
+# [[block.click]]
+# button = "left"
+# cmd = "kitty --class=nmtui nmtui-connect"
 
 [[block]]
 block = "time"

@@ -4,3 +4,5 @@
     *conf: ~/.dotfiles/i3/navi.conf
     *font: pango:UbuntuMono Nerd Font 11
 #endif
+Xft.dpi: 120
+*dpi: 120

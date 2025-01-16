@@ -32,6 +32,7 @@ htop
 zip
 zsh
 wget
+xorg
 
 #
 # WM
@@ -49,6 +50,7 @@ flameshot
 ly
 xfce4-settings
 udiskie
+network-manager-applet
 
 #
 # Utils
