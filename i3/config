@@ -50,7 +50,7 @@ exec --no-startup-id i3-battery-popup -n -L 15 -i /usr/share/icons/Papirus-Dark/
 exec --no-startup-id udiskie -nsa -m nested
 
 ### Autostart
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet --indicator
 exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 
@@ -187,7 +187,7 @@ bindsym $mod+r mode "resize"
 
 ### Program specific config
 for_window [instance="^scratchpad$"] floating enable, resize set 60 ppt 60 ppt, move position center, move scratchpad
-for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$|^overskride$"] floating enable, resize set 60 ppt 60 ppt, move position center
+for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$|^overskride$|^Nm-connection-editor$"] floating enable, resize set 60 ppt 60 ppt, move position center
 for_window [class="^Bitwarden$"] floating enable, resize set 50 ppt 60 ppt, move position center
 
 #
