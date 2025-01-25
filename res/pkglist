@@ -2,6 +2,12 @@
 # Basic functionality
 #
 
+linux
+linux-headers
+linux-firmware
+base
+base-devel
+sudo
 brightnessctl
 light
 inputplug
@@ -33,6 +39,7 @@ zip
 zsh
 wget
 xorg
+dkms
 
 #
 # WM

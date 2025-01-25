@@ -1,7 +1,7 @@
 *conf: ~/.dotfiles/i3/izanami.conf
 *font: pango:UbuntuMono Nerd Font 12
-Xft.dpi: 120
-*dpi: 120
+Xft.dpi: 115
+*dpi: 115
 #ifdef SRVR_navi
     *conf: ~/.dotfiles/i3/navi.conf
     *font: pango:UbuntuMono Nerd Font 11

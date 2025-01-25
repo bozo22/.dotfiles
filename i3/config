@@ -158,7 +158,7 @@ bindsym $mod+Shift+f floating toggle
 # Scratchpad:
 #
 bindsym $mod+Shift+backslash move scratchpad
-bindsym $mod+backslash exec "if ! [[ $(i3-msg -t get_tree | grep '\\"class\\":\\"scratchpad\\"') ]]; then kitty --class=scratchpad & disown && sleep 0.2; fi && i3 scratchpad show"
+bindsym $mod+backslash exec "if ! [[ $(i3-msg -t get_tree | grep '\\"class\\":\\"scratchpad\\"') ]]; then kitty --class=scratchpad & disown && sleep 0.3; fi && i3 scratchpad show"
 
 #
 # Resizing containers:
@@ -187,7 +187,7 @@ bindsym $mod+r mode "resize"
 
 ### Program specific config
 for_window [instance="^scratchpad$"] floating enable, resize set 60 ppt 60 ppt, move position center, move scratchpad
-for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$|^overskride$|^Nm-connection-editor$"] floating enable, resize set 60 ppt 60 ppt, move position center
+for_window [class="^pavucontrol$|^Blueman-manager$|^nmtui$|^overskride$|^Nm-connection-editor$|^Xfce4-settings-manager$"] floating enable, resize set 60 ppt 60 ppt, move position center
 for_window [class="^Bitwarden$"] floating enable, resize set 50 ppt 60 ppt, move position center
 
 #
