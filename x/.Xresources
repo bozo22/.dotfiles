@@ -5,6 +5,6 @@ Xft.dpi: 115
 #ifdef SRVR_navi
     *conf: ~/.dotfiles/i3/navi.conf
     *font: pango:UbuntuMono Nerd Font 11
-    Xft.dpi: 94
-    *dpi: 94
+    Xft.dpi: 87
+    *dpi: 87
 #endif
