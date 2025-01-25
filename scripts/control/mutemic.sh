@@ -4,11 +4,11 @@
 msgTag="microphone"
 
 # Change the volume using alsa(might differ if you use pulseaudio)
-amixer set Capture "$@" > /dev/null
+pactl set-source-mute 0 toggle > /dev/null
 
 # Query amixer for the current volume and whether or not the speaker is muted
-mute="$(amixer get Capture | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
-if [[ "$mute" == "off" ]]; then
+mute="$(pactl get-source-mute 0 | head -n 1)"
+if [[ "$mute" == "Mute: yes" ]]; then
     # Show the sound muted notification
     dunstify -a "muteMic" -u low -h string:x-dunst-stack-tag:$msgTag "Microphone muted" -t 1000
 else

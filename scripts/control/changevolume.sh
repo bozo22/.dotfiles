@@ -4,12 +4,16 @@
 msgTag="volume"
 
 # Change the volume using alsa(might differ if you use pulseaudio)
-amixer set Master "$@" > /dev/null
+if [[ "$@" == "toggle" ]] then
+    pactl set-sink-mute @DEFAULT_SINK@ "$@" > /dev/null
+else
+    pactl set-sink-volume @DEFAULT_SINK@ "$@" > /dev/null
+fi
 
 # Query amixer for the current volume and whether or not the speaker is muted
-volume="$(amixer get Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')"
-mute="$(amixer get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
-if [[ "$mute" == "off" ]]; then
+volume="$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)"
+mute="$(pactl get-sink-mute @DEFAULT_SINK@ | head -n 1)"
+if [[ "$mute" == "Mute: yes" ]]; then
     # Show the sound muted notification
     dunstify -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag "Volume muted" -t 1000
 else

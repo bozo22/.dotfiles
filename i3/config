@@ -78,8 +78,8 @@ bindsym $mod+q kill
 
 bindsym XF86MonBrightnessUp exec ~/.dotfiles/scripts/control/changebrightness.sh s +10%
 bindsym XF86MonBrightnessDown exec ~/.dotfiles/scripts/control/changebrightness.sh s 10%-
-bindsym XF86AudioRaiseVolume exec ~/.dotfiles/scripts/control/changevolume.sh 5%+
-bindsym XF86AudioLowerVolume exec ~/.dotfiles/scripts/control/changevolume.sh 5%-
+bindsym XF86AudioRaiseVolume exec ~/.dotfiles/scripts/control/changevolume.sh +5%
+bindsym XF86AudioLowerVolume exec ~/.dotfiles/scripts/control/changevolume.sh -5%
 bindsym XF86AudioMute exec ~/.dotfiles/scripts/control/changevolume.sh toggle
 bindsym XF86AudioMicMute exec ~/.dotfiles/scripts/control/mutemic.sh toggle
 

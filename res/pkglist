@@ -12,15 +12,12 @@ brightnessctl
 light
 inputplug
 pavucontrol
-alsa-utils
 networkmanager
 blueman
 kbdd
 picom
 ntfs-3g
 os-prober
-pulseaudio
-pulseaudio-alsa
 keymapper
 cronie
 reflector
@@ -40,6 +37,10 @@ zsh
 wget
 xorg
 dkms
+pipewire
+pipewire-audio
+pipewire-pulse
+alsa-utils
 
 #
 # WM
