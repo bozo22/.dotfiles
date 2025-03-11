@@ -1,4 +1,5 @@
 set selection-clipboard clipboard
+set selection-notification false
 map <Right> navigate next
 map <Return> navigate next
 map <Left> navigate previous

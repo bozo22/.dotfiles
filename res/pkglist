@@ -92,7 +92,7 @@ firefox
 google-chrome
 neovim
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 evince
 nautilus
 qbittorrent
